@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/09/HTML-a-标签用法详解/index.html">
 <meta property="og:site_name" content="WKY的个人博客">
 <meta property="og:description" content="a标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下 a标签的用法  一、作用 a元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是 a标签必须要有的属性，它为 a标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL； 无协议">
-<meta property="og:updated_time" content="2018-01-10T14:20:22.086Z">
+<meta property="og:updated_time" content="2018-01-10T14:22:41.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML a标签用法详解">
 <meta name="twitter:description" content="a标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下 a标签的用法  一、作用 a元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是 a标签必须要有的属性，它为 a标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL； 无协议">
@@ -307,10 +307,11 @@
 </ul>
 <ol>
 <li>最常见的值是一个网页的URL；</li>
-<li><p>无协议 a标签，如 <figure class="highlight plain"><figcaption><span>href</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3. a标签href使用锚点#，此时点击 a标签不发送请求，如 ``` &lt;a href=&quot;#aaa&quot;&gt;aaa&lt;a/&gt; ```，此时点击a链接页面锚点变为aaa，使用锚点可以实现当前页面的跳转；</span><br><span class="line">4. a标签href内容为空， ``` &lt;a href=&quot;&quot;&gt;QQ&lt;/a&gt; ```，点击a链接会刷新当前页面；</span><br><span class="line">5. 类似 ``` &lt;a href=&quot;?name=xxx&quot;&gt;a链接&lt;/a&gt; ``` 的 a标签，再点击后会发送一个GET请求，请求的值就是 ``` name=xxx</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p>使用路径作为href的值， <code>&lt;a href=&quot;main.html&quot;&gt;main&lt;/a&gt;</code>，点击后会跳转到main.html；</p>
-</li>
+<li>无协议 a标签，如 <code>&lt;a href=&quot;//qq.com&quot;&gt;QQ&lt;/a&gt;</code>，此时所用协议与当前页面相同；</li>
+<li>a标签href使用锚点#，此时点击 a标签不发送请求，如 <code>&lt;a href=&quot;#aaa&quot;&gt;aaa&lt;a/&gt;</code>，此时点击a链接页面锚点变为aaa，使用锚点可以实现当前页面的跳转；</li>
+<li>a标签href内容为空， <code>&lt;a href=&quot;&quot;&gt;QQ&lt;/a&gt;</code>，点击a链接会刷新当前页面；</li>
+<li>类似 <code>&lt;a href=&quot;?name=xxx&quot;&gt;a链接&lt;/a&gt;</code> 的 a标签，再点击后会发送一个GET请求，请求的值就是 <code>name=xxx</code>；</li>
+<li>使用路径作为href的值， <code>&lt;a href=&quot;main.html&quot;&gt;main&lt;/a&gt;</code>，点击后会跳转到main.html；</li>
 <li>伪协议： <code>&lt;a href=&quot;javascript: alert(1);&quot;&gt;&lt;/a&gt;</code> 会执行href中的JavaScript代码，<code>&lt;a href=&quot;javascript:;&quot;&gt;&lt;/a&gt;</code>将不会执行任何操作；</li>
 </ol>
 <ul>
@@ -320,7 +321,7 @@
 <li><h4 id="target属性"><a href="#target属性" class="headerlink" title="target属性"></a>target属性</h4>该属性指定在何处显示链接的资源。target属性的四个关键字具有特殊的意义：</li>
 </ul>
 <ol>
-<li><code>_self</code> ：加载当前页面，如果没有指定属性，则此值为默认；</li>
+<li><code>_self</code>：加载当前页面，如果没有指定属性，则此值为默认；</li>
 <li><code>_top</code>： 加载响应进入顶层页面，如果没有父级框架或页面，效果与 <code>_self</code>相同；</li>
 <li><code>_parent</code>：在父级页面打开地址；</li>
 <li><code>_blank</code>：在新窗口打开；</li>
