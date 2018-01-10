@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下标签的用法 一、作用 元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是标签必须要有的属性，它为标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL，如QQ； 无协议标签，如Q">
+<meta name="description" content="标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下标签的用法 一、作用 元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是标签必须要有的属性，它为标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL，如 href12342.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML&lt;a&gt;标签用法详解">
 <meta property="og:url" content="http://yoursite.com/2018/01/09/HTML-a-标签用法详解/index.html">
 <meta property="og:site_name" content="WKY的个人博客">
-<meta property="og:description" content="标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下标签的用法 一、作用 元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是标签必须要有的属性，它为标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL，如QQ； 无协议标签，如Q">
-<meta property="og:updated_time" content="2018-01-09T09:26:23.434Z">
+<meta property="og:description" content="标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下标签的用法 一、作用 元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是标签必须要有的属性，它为标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL，如 href12342.">
+<meta property="og:updated_time" content="2018-01-10T08:54:54.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML&lt;a&gt;标签用法详解">
-<meta name="twitter:description" content="标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下标签的用法 一、作用 元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是标签必须要有的属性，它为标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL，如QQ； 无协议标签，如Q">
+<meta name="twitter:description" content="标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下标签的用法 一、作用 元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是标签必须要有的属性，它为标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL，如 href12342.">
 
 
 
@@ -305,12 +305,25 @@
 <li><h4 id="href属性"><a href="#href属性" class="headerlink" title="href属性"></a>href属性</h4>href属性是<a>标签必须要有的属性，它为<a>标签定义一个超文本链接，但是href属性的值有多种选择：</a></a></li>
 </ul>
 <ol>
-<li>最常见的值是一个网页的URL，如<a href="http://qq.com" target="_blank" rel="noopener">QQ</a>；</li>
-<li>无协议<a>标签，如<a href="//qq.com">QQ</a>，此时所用协议与当前页面相同；</a></li>
-<li><a>标签href使用锚点#，此时点击<a>标签不发送请求，<a href="#aaa">aaa<a>；</a></a></a></a></li>
-<li><a>标签</a></li>
+<li>最常见的值是一个网页的URL，如 <figure class="highlight plain"><figcaption><span>href</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2. 无协议&lt;a&gt;标签，如 ```&lt;a href=&quot;//qq.com&quot;&gt;QQ&lt;/a&gt; ```，此时所用协议与当前页面相同；</span><br><span class="line">3. &lt;a&gt;标签href使用锚点#，此时点击&lt;a&gt;标签不发送请求，如 ```&lt;a href=&quot;#aaa&quot;&gt;aaa&lt;a/&gt; ```，此时点击a链接页面锚点变为aaa，使用锚点可以实现当前页面的跳转；</span><br><span class="line">4. &lt;a&gt;标签href内容为空， ```&lt;a href=&quot;&quot;&gt;QQ&lt;/a&gt; ```，点击a链接会刷新当前页面；</span><br><span class="line">5. 类似 ```&lt;a href=&quot;?name=xxx&quot;&gt;a链接&lt;/a&gt;``` 的&lt;a&gt;标签，再点击后会发送一个GET请求，请求的值就是 ```name=xxx</span><br></pre></td></tr></table></figure></li>
 </ol>
 </blockquote>
+<ol>
+<li>使用路径作为href的值， <code>&lt;a href=&quot;main.html&quot;&gt;main&lt;/a&gt;</code>，点击后会跳转到main.html；</li>
+<li>伪协议： <code>&lt;a href=&quot;javascript: alert(1);&quot;&gt;&lt;/a&gt;</code> 会执行href中的JavaScript代码，<code>&lt;a href=&quot;javascript:;&quot;&gt;&lt;/a&gt;</code>将不会执行任何操作；</li>
+</ol>
+<ul>
+<li><h4 id="download属性"><a href="#download属性" class="headerlink" title="download属性"></a>download属性</h4>此属性指示浏览器下载URL而不是导航到URL<br><code>&lt;a href=&quot;http://qq.com&quot; download&gt;QQ&lt;/a&gt;</code>在点击此链接后并不会打开 <code>http://qq.com</code>，而是将此网页保存到本地。<br>此属性仅适用于同源URLs</li>
+<li><h4 id="target属性"><a href="#target属性" class="headerlink" title="target属性"></a>target属性</h4>该属性指定在何处显示链接的资源。target属性的四个关键字具有特殊的意义：</li>
+</ul>
+<ol>
+<li><code>_self</code> ：加载当前页面，如果没有指定属性，则此值为默认；</li>
+<li><code>_top</code>： 加载响应进入顶层页面，如果没有父级框架或页面，效果与 <code>_self</code>相同；</li>
+<li><code>_parent</code>：在父级页面打开地址；</li>
+<li><code>_blank</code>：在新窗口打开；</li>
+</ol>
+<hr>
+<p><a>标签的常见用法，主要是href属性的值有较多种形式，以及target属性的部分值需要有iframe配合使用。<br>以上。</a></p>
 
       
     </div>
@@ -457,7 +470,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、作用"><span class="nav-number">1.</span> <span class="nav-text">一、作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、属性详解"><span class="nav-number">2.</span> <span class="nav-text">二、属性详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#href属性"><span class="nav-number">2.1.</span> <span class="nav-text">href属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、作用"><span class="nav-number">1.</span> <span class="nav-text">一、作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、属性详解"><span class="nav-number">2.</span> <span class="nav-text">二、属性详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#href属性"><span class="nav-number">2.1.</span> <span class="nav-text">href属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#download属性"><span class="nav-number">2.2.</span> <span class="nav-text">download属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#target属性"><span class="nav-number">2.3.</span> <span class="nav-text">target属性</span></a></li></ol></li></ol></div>
             
 
           </div>
