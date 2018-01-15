@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -217,6 +217,154 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/15/HTML中dl元素的一个小问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WKY的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/15/HTML中dl元素的一个小问题/" itemprop="url">HTML中dl元素的一个小问题.md</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T22:28:17+08:00">
+                2018-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>dl元素通常用来创建一个描述列表，但是在我使用的过程中发现了一个小问题。</p>
+<h2 id="定义及用法"><a href="#定义及用法" class="headerlink" title="定义及用法"></a>定义及用法</h2><p>在MDN中dl元素的定义是：一个包含术语定义以及描述的列表，通常用于展示词汇表或者元数据 (键-值对列表)。
+dl元素有两个特有的子元素，分别是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dl" title="HTML &lt;dl&gt; 元素 （或 HTML 描述列表元素）是一个包含术语定义以及描述的列表，通常用于展示词汇表或者元数据 (键-值对列表)。" target="_blank" rel="noopener"><code>&lt;dl&gt;</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dd" title="HTML &lt;dd&gt; 元素（HTML 描述元素）用来指明一个描述列表  (&lt;dl&gt;) 元素中一个术语的描述。这个元素只能作为描述列表元素的子元素出现，并且必须跟着一个 &lt;dt&gt; 元素。" target="_blank" rel="noopener"><code>&lt;dd&gt;</code></a> ， <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dt" title="HTML &lt;dt&gt; 元素 （或 HTML 术语定义元素）用于在一个定义列表中声明一个术语。该元素仅能作为 &lt;dl&gt; 的子元素出现。通常在该元素后面会跟着 &lt;dd&gt; 元素， 然而，多个连续出现的 &lt;dt&gt; 元素都将由出现在它们后面的第一个 &lt;dd&gt; 元素定义。" target="_blank" rel="noopener"><code>&lt;dt&gt;</code></a> 用于在一个定义列表中声明一个术语 ， <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dd" title="HTML &lt;dd&gt; 元素（HTML 描述元素）用来指明一个描述列表  (&lt;dl&gt;) 元素中一个术语的描述。这个元素只能作为描述列表元素的子元素出现，并且必须跟着一个 &lt;dt&gt; 元素。" target="_blank" rel="noopener"><code>&lt;dd&gt;</code></a> 用来指明一个描述列表  ( <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dl" title="HTML &lt;dl&gt; 元素 （或 HTML 描述列表元素）是一个包含术语定义以及描述的列表，通常用于展示词汇表或者元数据 (键-值对列表)。" target="_blank" rel="noopener"><code>&lt;dl&gt;</code></a> ) 元素中一个术语的描述。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">    &lt;dt&gt;Name&lt;/dt&gt;    </span><br><span class="line">    &lt;dd&gt;Godzilla&lt;/dd&gt;</span><br><span class="line">    &lt;dt&gt;Born&lt;/dt&gt;</span><br><span class="line">    &lt;dd&gt;1952&lt;/dd&gt;</span><br><span class="line">    &lt;dt&gt;Birthplace&lt;/dt&gt;</span><br><span class="line">    &lt;dd&gt;Japan&lt;/dd&gt;</span><br><span class="line">    &lt;dt&gt;Color&lt;/dt&gt;</span><br><span class="line">    &lt;dd&gt;Green&lt;/dd&gt;</span><br><span class="line">&lt;/dl&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这样我们就得到了一个包含术语及其描述的列表：
+<img src="http://ww1.sinaimg.cn/large/691e2a69gy1fnhlqkik68j2033041dfo.jpg" alt="dl元素列表"></p>
+<h2 id="给元素添加样式"><a href="#给元素添加样式" class="headerlink" title="给元素添加样式"></a>给<dl>元素添加样式</dl></h2><p>在上面的展示中， <code>&lt;dl&gt;</code> 元素有其默认的样式，但是我的页面上想要展示如下所示的列表：
+<img src="http://ww1.sinaimg.cn/large/691e2a69gy1fnhm10rd91j207x02e0sl.jpg" alt="目标列表">
+于是，我就给 <code>&lt;dl&gt;</code>列表添加了一些CSS样式：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dl &#123;</span><br><span class="line">  width: 400px;</span><br><span class="line">  border: 1px solid red;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  display: inline-block;</span><br><span class="line">&#125;</span><br><span class="line">dt, dd &#123;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">  float: left;</span><br><span class="line">  width: 50%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>结果呢，就出现了文章开头时所说的小问题：
+<img src="http://ww1.sinaimg.cn/large/691e2a69gy1fnhmcaxolij20bh02qa9x.jpg" alt="">
+描述列表的样式完全乱了，列表的第一行好像还可以，在第二行的 <code>&lt;dt&gt;</code> 之前出现了莫明其妙的空白，所后的几行也都出现了问题，这是为什么呢？
+我们使用「border大法」来看一看到底为什么出现了这种情况，我为 <code>&lt;dl&gt;</code> 元素中的所有元素都添加了 <code>border</code> ，并且稍微修改了 <code>&lt;dt&gt;</code> 和 <code>&lt;dd&gt;</code> 的宽度。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dl &#123;</span><br><span class="line">  width: 400px;</span><br><span class="line">&#125;</span><br><span class="line">dt, dd &#123;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">  float: left;</span><br><span class="line">  width: 49%;</span><br><span class="line">  border: 1px solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>出现的结果是这样的：
+<img src="http://ww1.sinaimg.cn/large/691e2a69gy1fnhmod6d3cj20bf04ymx3.jpg" alt="结果图">
+想必大家都看到了，定义术语的 <code>&lt;dt&gt;</code> 元素和描述术语的 <code>&lt;dd&gt;</code> 元素的高度不同，因此第二行的邮箱就被挤到了 <code>&lt;dd&gt;</code> 元素本来的位置上，其后的元素也被依次挤了下去。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>造成这个问题的原因是 <code>&lt;dt&gt;</code> 和 <code>&lt;dd&gt;</code> 自适应高度，而纯数字的 <code>&lt;dd&gt;</code> 高度要低于汉字内容的 <code>&lt;dt&gt;</code> ，因此有两种方法解决：
+1. 既然纯数字的高度和带汉字的文本的高度不同，那我们在两边都加上汉字不就行了嘛：
+<img src="http://ww1.sinaimg.cn/large/691e2a69gy1fnhnejsplkj20bh02ygli.jpg" alt="">
+完美～
+讲道理，皮这一下很开心…
+2. 正常人都不会用上边的方法的好吗，不慌，还有一种方法：给两边固定的高度。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">dl &#123;</span><br><span class="line">  width: 400px;</span><br><span class="line">&#125;</span><br><span class="line">dt, dd &#123;</span><br><span class="line">  font-size: 16px;</span><br><span class="line">  padding: 0;</span><br><span class="line">  margin: 0;</span><br><span class="line">  float: left;</span><br><span class="line">  width: 49%;</span><br><span class="line">  border: 1px solid red;</span><br><span class="line">  height: 30px;</span><br><span class="line">  line-height: 30px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>给两边都加上30px的高度，并且将行高设置为与高度相同，使文本垂直居中。
+<img src="http://ww1.sinaimg.cn/large/691e2a69gy1fnhnjfksn0j20bf03pjr9.jpg" alt=""></p>
+<h2 id="解决～"><a href="#解决～" class="headerlink" title="解决～"></a>解决～</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -260,7 +408,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T17:25:18+08:00">
                 2018-01-09
@@ -410,7 +558,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-03T11:20:32+08:00">
                 2018-01-03
@@ -455,7 +603,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/03/一小时搭起一个个人博客/">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -534,7 +682,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-02T20:55:04+08:00">
                 2018-01-02
@@ -583,7 +731,7 @@
 <li>行内元素及类行内元素居中</li>
 </ul>
 </blockquote>
-<p>使用 <code>text-align: center;</code> 令块级父容器中的行内元素居中.
+<p>使用 <code>text-align: center;</code> 令块级父容器中的行内元素居中。
 HTML:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;p class=&quot;inline-center&quot;&gt;</span><br><span class="line">			inline/inline-block/inline-table/inline-flex</span><br><span class="line">		&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
 <p>CSS:
@@ -754,7 +902,7 @@ HTML:
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-02T20:52:38+08:00">
                 2018-01-02
@@ -886,8 +1034,8 @@ HTML:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -937,7 +1085,7 @@ HTML:
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
