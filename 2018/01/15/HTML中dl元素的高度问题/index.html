@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="dl元素在使用过程中，其子元素会自适应内容的高度," />
 
 
 
@@ -80,6 +80,7 @@
 
 
 <meta name="description" content="dl元素通常用来创建一个描述列表，但是在我使用的过程中发现了一个小问题。  定义及用法在MDN中 &amp;lt;dl&amp;gt; 元素的定义是：一个包含术语定义以及描述的列表，通常用于展示词汇表或者元数据 (键-值对列表)。 &amp;lt;dl&amp;gt; 元素有两个特有的子元素，分别是 &amp;lt;dt&amp;gt; 和 &amp;lt;dd&amp;gt; ， &amp;lt;dt&amp;gt; 用于在一个定义列表中声明一个术语 ， &amp;lt;dd&amp;g">
+<meta name="keywords" content="dl元素在使用过程中，其子元素会自适应内容的高度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML中dl元素的高度问题">
 <meta property="og:url" content="http://yoursite.com/2018/01/15/HTML中dl元素的高度问题/index.html">
@@ -91,7 +92,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6878519-330ae55cbe0e0424.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6878519-4be774961e8810f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6878519-7abe6e2eb0aae357.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-26T02:59:46.149Z">
+<meta property="og:updated_time" content="2018-01-26T03:01:22.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML中dl元素的高度问题">
 <meta name="twitter:description" content="dl元素通常用来创建一个描述列表，但是在我使用的过程中发现了一个小问题。  定义及用法在MDN中 &amp;lt;dl&amp;gt; 元素的定义是：一个包含术语定义以及描述的列表，通常用于展示词汇表或者元数据 (键-值对列表)。 &amp;lt;dl&amp;gt; 元素有两个特有的子元素，分别是 &amp;lt;dt&amp;gt; 和 &amp;lt;dd&amp;gt; ， &amp;lt;dt&amp;gt; 用于在一个定义列表中声明一个术语 ， &amp;lt;dd&amp;g">
@@ -313,7 +314,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">    &lt;dt&gt;Name&lt;/dt&gt;    </span><br><span class="line">    &lt;dd&gt;Godzilla&lt;/dd&gt;</span><br><span class="line">    &lt;dt&gt;Born&lt;/dt&gt;</span><br><span class="line">    &lt;dd&gt;1952&lt;/dd&gt;</span><br><span class="line">    &lt;dt&gt;Birthplace&lt;/dt&gt;</span><br><span class="line">    &lt;dd&gt;Japan&lt;/dd&gt;</span><br><span class="line">    &lt;dt&gt;Color&lt;/dt&gt;</span><br><span class="line">    &lt;dd&gt;Green&lt;/dd&gt;</span><br><span class="line">&lt;/dl&gt;</span><br></pre></td></tr></table></figure></p>
 <p>这样我们就得到了一个包含术语及其描述的列表：
 <img src="http://upload-images.jianshu.io/upload_images/6878519-8a8d2469c86fcfd3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dl元素列表"></p>
-<h2 id="给-lt-dl-gt-元素添加样式"><a href="#给-lt-dl-gt-元素添加样式" class="headerlink" title="给 &lt;dl&gt;元素添加样式"></a>给 <code>&lt;dl&gt;</code>元素添加样式</h2><p>在上面的展示中， <code>&lt;dl&gt;</code> 元素有其默认的样式，但是我的页面上想要展示如下所示的列表：
+<h2 id="给dl元素添加样式"><a href="#给dl元素添加样式" class="headerlink" title="给dl元素添加样式"></a>给dl元素添加样式</h2><p>在上面的展示中， <code>&lt;dl&gt;</code> 元素有其默认的样式，但是我的页面上想要展示如下所示的列表：
 <img src="http://upload-images.jianshu.io/upload_images/6878519-61e026fa4e94c2f8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目标列表"></p>
 <p>于是，我就给 <code>&lt;dl&gt;</code>列表添加了一些CSS样式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dl &#123;</span><br><span class="line">  width: 400px;</span><br><span class="line">  border: 1px solid red;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  display: inline-block;</span><br><span class="line">&#125;</span><br><span class="line">dt, dd &#123;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">  float: left;</span><br><span class="line">  width: 50%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -350,6 +351,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dl元素在使用过程中，其子元素会自适应内容的高度/" rel="tag"># dl元素在使用过程中，其子元素会自适应内容的高度</a>
+          
+        </div>
       
 
       
@@ -462,7 +469,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">Tags</span>
                 
               </div>
@@ -495,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义及用法"><span class="nav-number">1.</span> <span class="nav-text">定义及用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给-lt-dl-gt-元素添加样式"><span class="nav-number">2.</span> <span class="nav-text">给 &lt;dl&gt;元素添加样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">3.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">4.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决～"><span class="nav-number">5.</span> <span class="nav-text">解决～</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义及用法"><span class="nav-number">1.</span> <span class="nav-text">定义及用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给dl元素添加样式"><span class="nav-number">2.</span> <span class="nav-text">给dl元素添加样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">3.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">4.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决～"><span class="nav-number">5.</span> <span class="nav-text">解决～</span></a></li></ol></div>
             
 
           </div>
