@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="在使用CSS对页面进行样式布局的时候，居中是我们最经常用到的布局之一，而居中布局又分为水平居中和垂直居中。 本文将要给大家介绍CSS居中布局的几种常用方法。 一、水平居中 行内元素及类行内元素居中   使用 text-align: center; 令块级父容器中的行内元素居中。 HTML: 1234567&amp;lt;body&amp;gt;	&amp;lt;div class=&amp;quot;father-div&amp;qu">
+<meta name="description" content="在使用CSS对页面进行样式布局的时候，居中是我们最经常用到的布局之一，而居中布局又分为水平居中和垂直居中。  本文将要给大家介绍CSS居中布局的几种常用方法。 一、水平居中 行内元素及类行内元素居中  使用 text-align: center; 令块级父容器中的行内元素居中。 HTML: 1234567&amp;lt;body&amp;gt;	&amp;lt;div class=&amp;quot;father-div&amp;qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS常用居中方法">
 <meta property="og:url" content="http://yoursite.com/2018/01/02/CSS常用居中方法/index.html">
 <meta property="og:site_name" content="今天学习了吗">
-<meta property="og:description" content="在使用CSS对页面进行样式布局的时候，居中是我们最经常用到的布局之一，而居中布局又分为水平居中和垂直居中。 本文将要给大家介绍CSS居中布局的几种常用方法。 一、水平居中 行内元素及类行内元素居中   使用 text-align: center; 令块级父容器中的行内元素居中。 HTML: 1234567&amp;lt;body&amp;gt;	&amp;lt;div class=&amp;quot;father-div&amp;qu">
-<meta property="og:updated_time" content="2018-01-15T04:00:03.198Z">
+<meta property="og:description" content="在使用CSS对页面进行样式布局的时候，居中是我们最经常用到的布局之一，而居中布局又分为水平居中和垂直居中。  本文将要给大家介绍CSS居中布局的几种常用方法。 一、水平居中 行内元素及类行内元素居中  使用 text-align: center; 令块级父容器中的行内元素居中。 HTML: 1234567&amp;lt;body&amp;gt;	&amp;lt;div class=&amp;quot;father-div&amp;qu">
+<meta property="og:updated_time" content="2018-01-26T02:57:12.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS常用居中方法">
-<meta name="twitter:description" content="在使用CSS对页面进行样式布局的时候，居中是我们最经常用到的布局之一，而居中布局又分为水平居中和垂直居中。 本文将要给大家介绍CSS居中布局的几种常用方法。 一、水平居中 行内元素及类行内元素居中   使用 text-align: center; 令块级父容器中的行内元素居中。 HTML: 1234567&amp;lt;body&amp;gt;	&amp;lt;div class=&amp;quot;father-div&amp;qu">
+<meta name="twitter:description" content="在使用CSS对页面进行样式布局的时候，居中是我们最经常用到的布局之一，而居中布局又分为水平居中和垂直居中。  本文将要给大家介绍CSS居中布局的几种常用方法。 一、水平居中 行内元素及类行内元素居中  使用 text-align: center; 令块级父容器中的行内元素居中。 HTML: 1234567&amp;lt;body&amp;gt;	&amp;lt;div class=&amp;quot;father-div&amp;qu">
 
 
 
@@ -299,56 +299,65 @@
 
       
         <blockquote>
-<p>在使用CSS对页面进行样式布局的时候，居中是我们最经常用到的布局之一，而居中布局又分为水平居中和垂直居中。
-本文将要给大家介绍CSS居中布局的几种常用方法。</p>
+<p>在使用CSS对页面进行样式布局的时候，居中是我们最经常用到的布局之一，而居中布局又分为水平居中和垂直居中。</p>
+</blockquote>
+<p>本文将要给大家介绍CSS居中布局的几种常用方法。</p>
 <h2 id="一、水平居中"><a href="#一、水平居中" class="headerlink" title="一、水平居中"></a>一、水平居中</h2><ul>
 <li>行内元素及类行内元素居中</li>
 </ul>
-</blockquote>
 <p>使用 <code>text-align: center;</code> 令块级父容器中的行内元素居中。
 HTML:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;p class=&quot;inline-center&quot;&gt;</span><br><span class="line">			inline/inline-block/inline-table/inline-flex</span><br><span class="line">		&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
 <p>CSS:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">.inline-center &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>需要注意的是 <code>text-align: center;</code> 这种方法只能作用于 <code>inline/inline-block/inline-table/inline-flex</code> 等类型的元素
-* 块级元素使用 <code>margin: 0 auto;</code> </p>
+<p>需要注意的是 <code>text-align: center;</code> 这种方法只能作用于 <code>inline/inline-block/inline-table/inline-flex</code> 等类型的元素</p>
+<ul>
+<li>块级元素使用 <code>margin: 0 auto;</code> </li>
+</ul>
 <p>HTML:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
 <p>CSS:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.center &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对块级元素使用 <code>margin: 0 auto;</code> 使其水平居中需要注意设置居中元素的宽度，高度可以直接设置也可通过内容撑开。
-* 使用position定位</p>
+<p>对块级元素使用 <code>margin: 0 auto;</code> 使其水平居中需要注意设置居中元素的宽度，高度可以直接设置也可通过内容撑开。</p>
+<ul>
+<li>使用position定位</li>
+</ul>
 <p>使用position对元素进行居中需要设置居中元素的宽度，同时对其父元素设置 <code>position: relative;</code> 
 HTML:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
 <p>CSS:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 50%;</span><br><span class="line">    margin-left: -50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此种方法需要在父元素设置为 <code>position: relative;</code> 的情况下，将居中元素设置为 <code>position: absolute;</code> ，同时需要为居中元素设置宽度，随后设置 <code>left: -50%</code> ，最后添加一个 <code>margin-left</code> ，值为负的宽度的一半。
-* flex居中</p>
-<p> <code>justify-content:center;</code> 主轴居中。
-HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p>此种方法需要在父元素设置为 <code>position: relative;</code> 的情况下，将居中元素设置为 <code>position: absolute;</code> ，同时需要为居中元素设置宽度，随后设置 <code>left: -50%</code> ，最后添加一个 <code>margin-left</code> ，值为负的宽度的一半。</p>
+<ul>
+<li><p>flex居中</p>
+<p><code>justify-content:center;</code> 主轴居中。
+HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <p>CSS:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: center;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>另外，使用flex布局使元素居中可以不设置元素的宽高，可以用内容将其撑开。
-* 使用transform</p>
+<p>另外，使用flex布局使元素居中可以不设置元素的宽高，可以用内容将其撑开。</p>
+<ul>
+<li>使用transform</li>
+</ul>
 <p>HTML:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
 <p>CSS:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 50%;</span><br><span class="line">    float: left;</span><br><span class="line">    transform: translateX(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>使用transform一样不必设置居中元素的宽高。</p>
 <h2 id="二、垂直居中"><a href="#二、垂直居中" class="headerlink" title="二、垂直居中"></a>二、垂直居中</h2><ul>
-<li>行内元素及类行内元素的垂直居中
-对于父元素高度固定且单行的行内元素及类行内元素垂直居中，最基本方法是将其 <code>line-height</code> 设置为与 <code>height</code> 相同即可</li>
+<li>行内元素及类行内元素的垂直居中</li>
 </ul>
+<p>对于父元素高度固定且单行的行内元素及类行内元素垂直居中，最基本方法是将其 <code>line-height</code> 设置为与 <code>height</code> 相同即可</p>
 <p>HTML:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;p class=&quot;center&quot;&gt;</span><br><span class="line">			centercentercentercentercentercentercentercentercentercentercenter</span><br><span class="line">		&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
 <p>CSS:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    line-height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>使用 <code>vertical-align</code> 
-此方法需要为居中元素的父元素添加 <code>display: table;</code>，并为居中元素添加 <code>display: table-cell;</code>，随后设置其 <code>vertical-align</code> 属性的值为 middle。</li>
+<li>使用 <code>vertical-align</code> </li>
 </ul>
+<p>此方法需要为居中元素的父元素添加 <code>display: table;</code>，并为居中元素添加 <code>display: table-cell;</code>，随后设置其 <code>vertical-align</code> 属性的值为 middle。</p>
 <p>HTML:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;p class=&quot;center&quot;&gt;</span><br><span class="line">			centercentercentercentercentercentercentercentercentercentercenter</span><br><span class="line">		&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
 <p>CSS:
@@ -372,8 +381,8 @@ HTML:
 <h2 id="三、水平垂直居中"><a href="#三、水平垂直居中" class="headerlink" title="三、水平垂直居中"></a>三、水平垂直居中</h2><ul>
 <li>绝对定位居中</li>
 </ul>
-<p>上文水平居中的方法中我们讲到 <code>margin:0 auto</code> 可以实现水平居中，现在我们使用 <code>margin:auto</code> 一样可以实现水平垂直居中。
-HTML:
+<p>上文水平居中的方法中我们讲到 <code>margin:0 auto</code> 可以实现水平居中，现在我们使用 <code>margin:auto</code> 一样可以实现水平垂直居中。</p>
+<p>HTML:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&apos;absolute-center&apos;&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
 <p>CSS:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.absolute-center &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">    margin: auto;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -381,8 +390,10 @@ HTML:
 1. 元素必须声明高度，可以使用固定高度如：<code>px、em</code> 也可使用百分比高度或min-/max-高度。
 2. 最好设置 <code>overflow:hidden</code> 防止内容溢出。
 3. 在Windows Phone设备上不起作用。
-4. 在IE-8以下的浏览器中不支持。
-* 使用position定位</p>
+4. 在IE-8以下的浏览器中不支持。</p>
+<ul>
+<li>使用position定位</li>
+</ul>
 <p>在元素的水平居中和垂直居中的内容中我们都提到了使用position定位来实现元素的居中，现在我们将两者结合起来就可以实现水平垂直中。</p>
 <p>HTML:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
