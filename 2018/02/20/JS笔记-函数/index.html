@@ -79,32 +79,16 @@
 
 
 
-<meta name="description" content="JS一共有七种数据类型，分别是：string、number、boolean、object、symbol、null、undefined，在正常使用中，一般不会将数据转换为symbol、null、undefined，因此本文也不涉及。  一、转换为string String() 方法  String 全局对象是一个用于字符串或一个字符序列的构造函数，可以使用 String 函数将其他值生成或转换成字">
+<meta name="description" content="函数声明的五种方式 具名函数123function fn(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;   函数是变量的特例 console.log(x) -&amp;gt; 结果：字符串 2. 匿名函数 123var fn = function(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;  声明+具名123var f = function">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript数据类型转换方法">
-<meta property="og:url" content="http://yoursite.com/2018/02/05/JavaScript数据类型转换方法/index.html">
+<meta property="og:title" content="JS笔记-函数">
+<meta property="og:url" content="http://yoursite.com/2018/02/20/JS笔记-函数/index.html">
 <meta property="og:site_name" content="今天学习了吗">
-<meta property="og:description" content="JS一共有七种数据类型，分别是：string、number、boolean、object、symbol、null、undefined，在正常使用中，一般不会将数据转换为symbol、null、undefined，因此本文也不涉及。  一、转换为string String() 方法  String 全局对象是一个用于字符串或一个字符序列的构造函数，可以使用 String 函数将其他值生成或转换成字">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a78f2782cf23.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a790ebea135b.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a795d7bbfed8.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a795e23c647e.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a796453ecc91.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a7964c472940.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a79675a41781.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a79a156e390a.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a79a23e83c4d.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a79a5c8dc3f9.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a79a62a1454d.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a79a72f041c5.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/06/5a79a842b3bfe.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/07/5a7a42f150339.png">
-<meta property="og:image" content="https://i.loli.net/2018/02/07/5a7a43be8b427.png">
-<meta property="og:updated_time" content="2018-02-07T00:16:44.863Z">
+<meta property="og:description" content="函数声明的五种方式 具名函数123function fn(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;   函数是变量的特例 console.log(x) -&amp;gt; 结果：字符串 2. 匿名函数 123var fn = function(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;  声明+具名123var f = function">
+<meta property="og:updated_time" content="2018-02-20T12:56:37.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript数据类型转换方法">
-<meta name="twitter:description" content="JS一共有七种数据类型，分别是：string、number、boolean、object、symbol、null、undefined，在正常使用中，一般不会将数据转换为symbol、null、undefined，因此本文也不涉及。  一、转换为string String() 方法  String 全局对象是一个用于字符串或一个字符序列的构造函数，可以使用 String 函数将其他值生成或转换成字">
-<meta name="twitter:image" content="https://i.loli.net/2018/02/06/5a78f2782cf23.png">
+<meta name="twitter:title" content="JS笔记-函数">
+<meta name="twitter:description" content="函数声明的五种方式 具名函数123function fn(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;   函数是变量的特例 console.log(x) -&amp;gt; 结果：字符串 2. 匿名函数 123var fn = function(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;  声明+具名123var f = function">
 
 
 
@@ -134,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/05/JavaScript数据类型转换方法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/20/JS笔记-函数/"/>
 
 
 
 
 
-  <title>JavaScript数据类型转换方法 | 今天学习了吗</title>
+  <title>JS笔记-函数 | 今天学习了吗</title>
   
 
 
@@ -247,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/05/JavaScript数据类型转换方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/20/JS笔记-函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wky">
@@ -264,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript数据类型转换方法</h1>
+          <h1 class="post-title" itemprop="name headline">JS笔记-函数</h1>
         
 
         <div class="post-meta">
@@ -276,8 +260,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T16:25:18+08:00">
-                2018-02-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:55:56+08:00">
+                2018-02-20
               </time>
             
 
@@ -314,75 +298,40 @@
       
 
       
-        <blockquote>
-<p>JS一共有七种数据类型，分别是：string、number、boolean、object、symbol、null、undefined，在正常使用中，一般不会将数据转换为symbol、null、undefined，因此本文也不涉及。</p>
-</blockquote>
-<h2 id="一、转换为string"><a href="#一、转换为string" class="headerlink" title="一、转换为string"></a>一、转换为string</h2><ol>
-<li><code>String()</code> 方法</li>
-</ol>
-<p><code>String</code> 全局对象是一个用于字符串或一个字符序列的构造函数，可以使用 <code>String</code> 函数将其他值生成或转换成字符串。</p>
-<p><img src="https://i.loli.net/2018/02/06/5a78f2782cf23.png" alt="String()">
-String()方法适用于将各种类型的数据转换为string类型，包括Symbol类型：</p>
-<p><img src="https://i.loli.net/2018/02/06/5a790ebea135b.png" alt="使用String()方法转换symbol类型"></p>
-<p>值得注意的是String()方法在转换Object类型时，无论Object中的键值为何，只会转换成字符串 <code>&quot;[object Object]&quot;</code> </p>
-<ol>
-<li><code>toString()</code> 方法</li>
-</ol>
-<p>每个对象都有一个 <code>toString()</code> 方法，返回值表示该对象的字符串。</p>
-<p><img src="https://i.loli.net/2018/02/06/5a795d7bbfed8.png" alt="toString()方法"></p>
-<p>与String()方法不同的是，toString()方法并不能转换 <code>null</code>类型和 <code>undefined</code>类型</p>
-<p><img src="https://i.loli.net/2018/02/06/5a795e23c647e.png" alt="toString()方法不能转换null和undefined"></p>
-<ol>
-<li><code>+&#39;&#39;</code>方法</li>
-</ol>
-<p>对非String类型的数据，可以使用 <code>+&#39;&#39;</code> 这种方法，例如：</p>
-<p><img src="https://i.loli.net/2018/02/06/5a796453ecc91.png" alt="+&#39;&#39;方法">
-需要注意的是，<code>+&#39;&#39;</code>方法的单引号中为空，并不是空格，而且这种方法并不能转换Symbol类型</p>
-<p><img src="https://i.loli.net/2018/02/06/5a7964c472940.png" alt="+‘’方法并不能转换Symbol类型"></p>
-<h2 id="二、转换为Number"><a href="#二、转换为Number" class="headerlink" title="二、转换为Number"></a>二、转换为Number</h2><ol>
-<li><code>Number()</code> 方法</li>
-</ol>
-<p><img src="https://i.loli.net/2018/02/06/5a79675a41781.png" alt="Number方法">
-使用Number()方法时，会将Object类型转换为NaN，不管Object是空还是有值。</p>
-<ol>
-<li><code>parseInt()</code> 方法</li>
-</ol>
-<p>parseInt() 函数解析一个字符串参数，并返回一个指定基数的整数。</p>
-<p>语法： <code>parseInt(string, radix);</code>，其中string表示要被转换的值，如果被转换的值不是一个字符串，那么该值将会被转换为字符串然后再进行数字转换；radix表示转换的基数，参数 <code>&#39;10&#39;</code> 表示被转换的值将被转换为十进制数。</p>
-<p><img src="https://i.loli.net/2018/02/06/5a79a156e390a.png" alt="parseInt()"></p>
-<ol>
-<li><code>parseFloat()</code> 方法</li>
-</ol>
-<p>parseFloat() 函数解析一个字符串参数并返回一个浮点数。</p>
-<p>语法： <code>parseFloat(string)</code> ，string表示需要被解析成为浮点数的字符串。</p>
-<p>由于只有十进制中存在浮点数，因此不需要参数。</p>
-<p><img src="https://i.loli.net/2018/02/06/5a79a23e83c4d.png" alt="parseFloat()">
-注意： <code>parseFloat()</code> 与 <code>parseInt()</code>一样，数字之后的字符将会被舍弃，数字之前的字符将导致转换后的值为 <code>NaN</code>。</p>
-<ol>
-<li><code>-0</code> 方法</li>
-</ol>
-<p><img src="https://i.loli.net/2018/02/06/5a79a5c8dc3f9.png" alt="-0"></p>
-<p><code>-0</code> 方法在转换数字字符串时可以将其转换为数字，若字符串中有非数字字符，则得到的值为 <code>NaN</code> 。</p>
-<p><img src="https://i.loli.net/2018/02/06/5a79a62a1454d.png" alt="转换数字字符串及包含非数字字符的字符串"></p>
-<ol>
-<li><code>+</code> 方法</li>
-</ol>
-<p><img src="https://i.loli.net/2018/02/06/5a79a72f041c5.png" alt="+">
-同<code>-0</code> 方法， <code>+</code> 方法在转换数字字符串时可以将其转换为数字，若字符串中有非数字字符，则得到的值为 <code>NaN</code> 。</p>
-<h2 id="三、转换为Boolean值"><a href="#三、转换为Boolean值" class="headerlink" title="三、转换为Boolean值"></a>三、转换为Boolean值</h2><ol>
-<li><code>Boolean()</code> 方法</li>
-</ol>
-<p><img src="https://i.loli.net/2018/02/06/5a79a842b3bfe.png" alt="Boolean()方法"></p>
-<ol>
-<li><p><code>!!</code> 方法</p>
-<p><code>!</code>运算符表示取反，会将数据转换为其Boolean值相反的值</p>
+        <h3 id="函数声明的五种方式"><a href="#函数声明的五种方式" class="headerlink" title="函数声明的五种方式"></a>函数声明的五种方式</h3><ol>
+<li>具名函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fn(输入1, 输入2, ...)&#123;</span><br><span class="line">  return 输出值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="https://i.loli.net/2018/02/07/5a7a42f150339.png" alt="!取反"></p>
-<p>对经过 <code>!</code> 运算取反的值再次取反，就可以得到被转换值原本的Boolean值</p>
-<p><img src="https://i.loli.net/2018/02/07/5a7a43be8b427.png" alt="!!得到Boolean值"></p>
-<hr>
-<p>以上。</p>
+<p>函数是变量的特例
+console.log(x) -&gt; 结果：字符串
+2. 匿名函数
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fn = function(输入1, 输入2, ...)&#123;</span><br><span class="line">  return 输出值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>声明+具名<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var f = function fn(输入1, 输入2, ...)&#123;</span><br><span class="line">  return 输出值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>console.log(fn) -&gt; 报错
+fn的作用域只在函数的代码块内
+4. Function构造函数
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fn = new Function(&apos;输入1&apos;, &apos;输入2&apos;, &apos;return 返回值&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>5.ES6语法（箭头函数）
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fn = (输入1, 输入2) =&gt; &#123;</span><br><span class="line">  return 输出</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>只有一个参数，可以省略()，函数体只有一句话，可以同时省略{}及return
+箭头函数只能是匿名函数，可以用变量包含</p>
+<h3 id="函数的name属性"><a href="#函数的name属性" class="headerlink" title="函数的name属性"></a>函数的name属性</h3><ol>
+<li><p>具名函数的name</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;&#125;</span><br><span class="line">fn.name //fn</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>匿名函数的name</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var f = function()&#123;&#125;</span><br><span class="line">f.name //f</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>声明+具名函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var f = function fn()&#123;&#125;</span><br><span class="line">f.name //fn</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Function构造函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var fn = new Function(&apos;x&apos;, &apos;y&apos;, &apos;return x+y&apos;)</span><br><span class="line">fn.name //&quot;anonymous&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -407,8 +356,8 @@ String()方法适用于将各种类型的数据转换为string类型，包括Sym
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/23/常见排序算法的伪代码及流程图/" rel="next" title="常见排序算法的伪代码及流程图">
-                <i class="fa fa-chevron-left"></i> 常见排序算法的伪代码及流程图
+              <a href="/2018/02/05/JavaScript数据类型转换方法/" rel="next" title="JavaScript数据类型转换方法">
+                <i class="fa fa-chevron-left"></i> JavaScript数据类型转换方法
               </a>
             
           </div>
@@ -416,10 +365,6 @@ String()方法适用于将各种类型的数据转换为string类型，包括Sym
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/20/JS笔记-函数/" rel="prev" title="JS笔记-函数">
-                JS笔记-函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -542,7 +487,7 @@ String()方法适用于将各种类型的数据转换为string类型，包括Sym
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、转换为string"><span class="nav-number">1.</span> <span class="nav-text">一、转换为string</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、转换为Number"><span class="nav-number">2.</span> <span class="nav-text">二、转换为Number</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、转换为Boolean值"><span class="nav-number">3.</span> <span class="nav-text">三、转换为Boolean值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明的五种方式"><span class="nav-number">1.</span> <span class="nav-text">函数声明的五种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的name属性"><span class="nav-number">2.</span> <span class="nav-text">函数的name属性</span></a></li></ol></div>
             
 
           </div>
