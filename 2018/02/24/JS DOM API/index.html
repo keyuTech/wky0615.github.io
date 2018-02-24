@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="a标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下 a标签的用法  一、作用 a元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是 a标签必须要有的属性，它为 a标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL&amp;lt;a">
+<meta name="description" content="innerText和textContent的区别  nodeType值  cloneNode分为深拷贝和浅拷贝  isEqualNode和isSameNode的区别  normalize  DOM树的根节点是html  DOM节点的七种类型  childNode的方法 1234childNode.remove()childNode.before()childNode.after()childNo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML a标签用法详解">
-<meta property="og:url" content="http://yoursite.com/2018/01/09/HTML-a-标签用法详解/index.html">
+<meta property="og:title" content="API">
+<meta property="og:url" content="http://yoursite.com/2018/02/24/JS DOM API/index.html">
 <meta property="og:site_name" content="今天学习了吗">
-<meta property="og:description" content="a标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下 a标签的用法  一、作用 a元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是 a标签必须要有的属性，它为 a标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL&amp;lt;a">
-<meta property="og:updated_time" content="2018-01-10T14:24:56.048Z">
+<meta property="og:description" content="innerText和textContent的区别  nodeType值  cloneNode分为深拷贝和浅拷贝  isEqualNode和isSameNode的区别  normalize  DOM树的根节点是html  DOM节点的七种类型  childNode的方法 1234childNode.remove()childNode.before()childNode.after()childNo">
+<meta property="og:updated_time" content="2018-02-24T00:07:35.650Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML a标签用法详解">
-<meta name="twitter:description" content="a标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下 a标签的用法  一、作用 a元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（MDN） 二、属性详解 href属性href属性是 a标签必须要有的属性，它为 a标签定义一个超文本链接，但是href属性的值有多种选择：   最常见的值是一个网页的URL&amp;lt;a">
+<meta name="twitter:title" content="API">
+<meta name="twitter:description" content="innerText和textContent的区别  nodeType值  cloneNode分为深拷贝和浅拷贝  isEqualNode和isSameNode的区别  normalize  DOM树的根节点是html  DOM节点的七种类型  childNode的方法 1234childNode.remove()childNode.before()childNode.after()childNo">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/09/HTML-a-标签用法详解/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/24/JS DOM API/"/>
 
 
 
 
 
-  <title>HTML a标签用法详解 | 今天学习了吗</title>
+  <title>API | 今天学习了吗</title>
   
 
 
@@ -231,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/09/HTML-a-标签用法详解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/24/JS DOM API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wky">
@@ -248,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTML a标签用法详解</h1>
+          <h1 class="post-title" itemprop="name headline">API</h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T17:25:18+08:00">
-                2018-01-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T08:03:09+08:00">
+                2018-02-24
               </time>
             
 
@@ -298,37 +298,27 @@
       
 
       
-        <blockquote>
-<p>a标签可以算是我们写HTML组常用的几个标签之一了，因此就在这里详细梳理一下 a标签的用法</p>
-</blockquote>
-<h3 id="一、作用"><a href="#一、作用" class="headerlink" title="一、作用"></a>一、作用</h3><p> a元素  (或锚元素) 可以创建一个到其他网页、文件、同一页面内的位置、电子邮件地址或任何其他URL的超链接。（<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a" target="_blank" rel="noopener">MDN</a>）</p>
-<h3 id="二、属性详解"><a href="#二、属性详解" class="headerlink" title="二、属性详解"></a>二、属性详解</h3><ul>
-<li><h4 id="href属性"><a href="#href属性" class="headerlink" title="href属性"></a>href属性</h4>href属性是 a标签必须要有的属性，它为 a标签定义一个超文本链接，但是href属性的值有多种选择：</li>
-</ul>
-<ol>
-<li>最常见的值是一个网页的URL<code>&lt;a href=&quot;http://qq.com&quot;&gt;QQ&lt;/a&gt;</code>；</li>
-<li>无协议 a标签，如 <code>&lt;a href=&quot;//qq.com&quot;&gt;QQ&lt;/a&gt;</code>，此时所用协议与当前页面相同；</li>
-<li>a标签href使用锚点#，此时点击 a标签不发送请求，如 <code>&lt;a href=&quot;#aaa&quot;&gt;aaa&lt;a/&gt;</code>，此时点击a链接页面锚点变为aaa，使用锚点可以实现当前页面的跳转；</li>
-<li>a标签href内容为空， <code>&lt;a href=&quot;&quot;&gt;QQ&lt;/a&gt;</code>，点击a链接会刷新当前页面；</li>
-<li>类似 <code>&lt;a href=&quot;?name=xxx&quot;&gt;a链接&lt;/a&gt;</code> 的 a标签，再点击后会发送一个GET请求，请求的值就是 <code>name=xxx</code>；</li>
-<li>使用路径作为href的值， <code>&lt;a href=&quot;main.html&quot;&gt;main&lt;/a&gt;</code>，点击后会跳转到main.html；</li>
-<li>伪协议： <code>&lt;a href=&quot;javascript: alert(1);&quot;&gt;&lt;/a&gt;</code> 会执行href中的JavaScript代码，<code>&lt;a href=&quot;javascript:;&quot;&gt;&lt;/a&gt;</code>将不会执行任何操作；</li>
+        <ol>
+<li><p>innerText和textContent的区别</p>
+</li>
+<li><p>nodeType值</p>
+</li>
+<li><p>cloneNode分为深拷贝和浅拷贝</p>
+</li>
+<li><p>isEqualNode和isSameNode的区别</p>
+</li>
+<li><p>normalize</p>
+</li>
+<li><p>DOM树的根节点是html</p>
+</li>
+<li><p>DOM节点的七种类型</p>
+</li>
+<li><p>childNode的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">childNode.remove()</span><br><span class="line">childNode.before()</span><br><span class="line">childNode.after()</span><br><span class="line">childNode.replace()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>HTMLCollection和NodeList的区别</p>
+</li>
 </ol>
-<ul>
-<li><h4 id="download属性"><a href="#download属性" class="headerlink" title="download属性"></a>download属性</h4>此属性指示浏览器下载URL而不是导航到URL
-<code>&lt;a href=&quot;http://qq.com&quot; download&gt;QQ&lt;/a&gt;</code>在点击此链接后并不会打开 <code>http://qq.com</code>，而是将此网页保存到本地。
-此属性仅适用于同源URLs。</li>
-<li><h4 id="target属性"><a href="#target属性" class="headerlink" title="target属性"></a>target属性</h4>该属性指定在何处显示链接的资源。target属性的四个关键字具有特殊的意义：</li>
-</ul>
-<ol>
-<li><code>_self</code>：加载当前页面，如果没有指定属性，则此值为默认；</li>
-<li><code>_top</code>： 加载响应进入顶层页面，如果没有父级框架或页面，效果与 <code>_self</code>相同；</li>
-<li><code>_parent</code>：在父级页面打开地址；</li>
-<li><code>_blank</code>：在新窗口打开；</li>
-</ol>
-<hr>
-<p>a标签的常见用法，主要是href属性的值有较多种形式，以及target属性的部分值需要有iframe配合使用。</p>
-<p>以上。</p>
 
       
     </div>
@@ -353,8 +343,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/03/一小时搭起一个个人博客/" rel="next" title="一小时搭起一个个人博客">
-                <i class="fa fa-chevron-left"></i> 一小时搭起一个个人博客
+              <a href="/2018/02/20/JS笔记-函数/" rel="next" title="JS笔记-函数">
+                <i class="fa fa-chevron-left"></i> JS笔记-函数
               </a>
             
           </div>
@@ -362,10 +352,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/15/HTML中dl元素的高度问题/" rel="prev" title="HTML中dl元素的高度问题">
-                HTML中dl元素的高度问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -417,17 +403,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -478,22 +455,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、作用"><span class="nav-number">1.</span> <span class="nav-text">一、作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、属性详解"><span class="nav-number">2.</span> <span class="nav-text">二、属性详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#href属性"><span class="nav-number">2.1.</span> <span class="nav-text">href属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#download属性"><span class="nav-number">2.2.</span> <span class="nav-text">download属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#target属性"><span class="nav-number">2.3.</span> <span class="nav-text">target属性</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
