@@ -336,6 +336,17 @@ fn的作用域只在函数的代码块内
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var fn = new Function(&apos;x&apos;, &apos;y&apos;, &apos;return x+y&apos;)</span><br><span class="line">fn.name //&quot;anonymous&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3><ol>
+<li>fn(参数1, 参数2, …)</li>
+<li>fn.call(undefined, 参数1, 参数2, …)<h3 id="this-与-arguments"><a href="#this-与-arguments" class="headerlink" title="this 与 arguments"></a>this 与 arguments</h3>fn.call(undefined, 参数1, 参数2, …)
+this: undefined
+arguments: 参数1, 参数2, …</li>
+</ol>
+<p>call的第一个参数可以用this得到
+call的后面的参数可以用arguments得到
+非严格模式下，this为undefined时，浏览器会自动将undefined变为window</p>
+<h3 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h3><p>stack -&gt;先入后出</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>如果一个函数，使用了它范围外的变量，那么（这个函数+这个变量）就叫做闭包</p>
 
           
         
