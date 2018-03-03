@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="函数声明的五种方式 具名函数123function fn(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;   函数是变量的特例 console.log(x) -&amp;gt; 结果：字符串 2. 匿名函数 123var fn = function(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;  声明+具名123var f = function">
+<meta name="description" content="本文的主要内容是使用jQuery实现轮播的思路及过程  1. 准备工作首先准备好五张（随便几张只要不是一张就行）尺寸合适的图片，在html中用一个div表示视窗，其内用一个div放置准备好的图片。 1234567891011121314&amp;lt;div class=&amp;quot;viewport&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;images&amp;quot;&amp;gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS笔记-函数">
-<meta property="og:url" content="http://yoursite.com/2018/02/20/JS笔记-函数/index.html">
+<meta property="og:title" content="用jQuery做个轮播">
+<meta property="og:url" content="http://yoursite.com/2018/03/03/用jQuery做个轮播/index.html">
 <meta property="og:site_name" content="今天学习了吗">
-<meta property="og:description" content="函数声明的五种方式 具名函数123function fn(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;   函数是变量的特例 console.log(x) -&amp;gt; 结果：字符串 2. 匿名函数 123var fn = function(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;  声明+具名123var f = function">
-<meta property="og:updated_time" content="2018-02-24T00:01:39.443Z">
+<meta property="og:description" content="本文的主要内容是使用jQuery实现轮播的思路及过程  1. 准备工作首先准备好五张（随便几张只要不是一张就行）尺寸合适的图片，在html中用一个div表示视窗，其内用一个div放置准备好的图片。 1234567891011121314&amp;lt;div class=&amp;quot;viewport&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;images&amp;quot;&amp;gt;">
+<meta property="og:image" content="https://i.loli.net/2018/03/03/5a9a56d3375f9.png">
+<meta property="og:updated_time" content="2018-03-03T14:41:10.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS笔记-函数">
-<meta name="twitter:description" content="函数声明的五种方式 具名函数123function fn(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;   函数是变量的特例 console.log(x) -&amp;gt; 结果：字符串 2. 匿名函数 123var fn = function(输入1, 输入2, ...)&amp;#123;  return 输出值&amp;#125;  声明+具名123var f = function">
+<meta name="twitter:title" content="用jQuery做个轮播">
+<meta name="twitter:description" content="本文的主要内容是使用jQuery实现轮播的思路及过程  1. 准备工作首先准备好五张（随便几张只要不是一张就行）尺寸合适的图片，在html中用一个div表示视窗，其内用一个div放置准备好的图片。 1234567891011121314&amp;lt;div class=&amp;quot;viewport&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;images&amp;quot;&amp;gt;">
+<meta name="twitter:image" content="https://i.loli.net/2018/03/03/5a9a56d3375f9.png">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/20/JS笔记-函数/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/03/用jQuery做个轮播/"/>
 
 
 
 
 
-  <title>JS笔记-函数 | 今天学习了吗</title>
+  <title>用jQuery做个轮播 | 今天学习了吗</title>
   
 
 
@@ -231,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/20/JS笔记-函数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/用jQuery做个轮播/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wky">
@@ -248,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS笔记-函数</h1>
+          <h1 class="post-title" itemprop="name headline">用jQuery做个轮播</h1>
         
 
         <div class="post-meta">
@@ -260,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:55:56+08:00">
-                2018-02-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T10:57:18+08:00">
+                2018-03-03
               </time>
             
 
@@ -298,51 +300,19 @@
       
 
       
-        <h3 id="函数声明的五种方式"><a href="#函数声明的五种方式" class="headerlink" title="函数声明的五种方式"></a>函数声明的五种方式</h3><ol>
-<li>具名函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fn(输入1, 输入2, ...)&#123;</span><br><span class="line">  return 输出值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>函数是变量的特例
-console.log(x) -&gt; 结果：字符串
-2. 匿名函数
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fn = function(输入1, 输入2, ...)&#123;</span><br><span class="line">  return 输出值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>声明+具名<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var f = function fn(输入1, 输入2, ...)&#123;</span><br><span class="line">  return 输出值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>console.log(fn) -&gt; 报错
-fn的作用域只在函数的代码块内
-4. Function构造函数
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fn = new Function(&apos;输入1&apos;, &apos;输入2&apos;, &apos;return 返回值&apos;)</span><br></pre></td></tr></table></figure></p>
-<p>5.ES6语法（箭头函数）
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fn = (输入1, 输入2) =&gt; &#123;</span><br><span class="line">  return 输出</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>只有一个参数，可以省略()，函数体只有一句话，可以同时省略{}及return
-箭头函数只能是匿名函数，可以用变量包含</p>
-<h3 id="函数的name属性"><a href="#函数的name属性" class="headerlink" title="函数的name属性"></a>函数的name属性</h3><ol>
-<li><p>具名函数的name</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;&#125;</span><br><span class="line">fn.name //fn</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匿名函数的name</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var f = function()&#123;&#125;</span><br><span class="line">f.name //f</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>声明+具名函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var f = function fn()&#123;&#125;</span><br><span class="line">f.name //fn</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Function构造函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var fn = new Function(&apos;x&apos;, &apos;y&apos;, &apos;return x+y&apos;)</span><br><span class="line">fn.name //&quot;anonymous&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3><ol>
-<li>fn(参数1, 参数2, …)</li>
-<li>fn.call(undefined, 参数1, 参数2, …)<h3 id="this-与-arguments"><a href="#this-与-arguments" class="headerlink" title="this 与 arguments"></a>this 与 arguments</h3>fn.call(undefined, 参数1, 参数2, …)
-this: undefined
-arguments: 参数1, 参数2, …</li>
-</ol>
-<p>call的第一个参数可以用this得到
-call的后面的参数可以用arguments得到
-非严格模式下，this为undefined时，浏览器会自动将undefined变为window</p>
-<h3 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h3><p>stack -&gt;先入后出</p>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>如果一个函数，使用了它范围外的变量，那么（这个函数+这个变量）就叫做闭包</p>
+        <blockquote>
+<p>本文的主要内容是使用jQuery实现轮播的思路及过程</p>
+</blockquote>
+<h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h3><p>首先准备好五张（随便几张只要不是一张就行）尺寸合适的图片，在html中用一个div表示视窗，其内用一个div放置准备好的图片。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;viewport&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;images&quot;&gt;</span><br><span class="line">      &lt;img src=&quot;https://i2.wp.com/waggintailacademy.com/wp-content/uploads/2016/10/Natural-Dog-Law-5-Dogs-are-social-pack-animals.jpg?fit=845%2C450&quot; alt=&quot;&quot; class=&quot;img1&quot; width=400px&gt;</span><br><span class="line">      &lt;img src=&quot;https://bullyfambamblog.files.wordpress.com/2017/03/top-rated-treats-featured-image.jpg?w=845&amp;h=450&amp;crop=1&quot; alt=&quot;&quot; class=&quot;img2&quot; width=400px&gt;</span><br><span class="line">      &lt;img src=&quot;https://pressraffles.files.wordpress.com/2017/02/picture11.png?w=845&amp;h=450&amp;crop=1&quot; alt=&quot;&quot; class=&quot;img3&quot; width=400px&gt;</span><br><span class="line">      &lt;img src=&quot;https://i0.wp.com/kcpetcollective.com/wp-content/uploads/2017/08/wesley_onelight_couch.png?resize=845%2C450&amp;ssl=1&quot; alt=&quot;&quot; class=&quot;img4&quot; width=400px&gt;</span><br><span class="line">      &lt;img src=&quot;https://i0.wp.com/petperfectiontoowoomba.com/wp-content/uploads/2017/10/A-place-of-their-own-What-to-look-for-in-dog-beds-1.jpg?fit=845%2C450&quot; alt=&quot;&quot; class=&quot;img5&quot; width=400px&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;button id=&quot;button1&quot;&gt;第1张&lt;/button&gt;</span><br><span class="line">  &lt;button id=&quot;button2&quot;&gt;第2张&lt;/button&gt;</span><br><span class="line">  &lt;button id=&quot;button3&quot;&gt;第3张&lt;/button&gt;</span><br><span class="line">  &lt;button id=&quot;button4&quot;&gt;第4张&lt;/button&gt;</span><br><span class="line">  &lt;button id=&quot;button5&quot;&gt;第5张&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>这里为每张图片设置了合适的宽度，并且添加五个button方便选取。
+然后为图片添加CSS：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.viewport &#123;</span><br><span class="line">  width: 400px;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.images &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  align-items: flex-start;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>添加完样式的效果如下图：
+<img src="https://i.loli.net/2018/03/03/5a9a56d3375f9.png" alt=""></p>
+<h3 id="2-添加JS"><a href="#2-添加JS" class="headerlink" title="2. 添加JS"></a>2. 添加JS</h3><p>首先用简单的方式实现图片的切换效果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$(button1).on(&apos;click&apos;, function()&#123;</span><br><span class="line">  $(&apos;.images&apos;).css(&#123;</span><br><span class="line">    &apos;margin-left&apos;: &apos;0&apos;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">$(button2).on(&apos;click&apos;, function()&#123;</span><br><span class="line">  $(&apos;.images&apos;).css(&#123;</span><br><span class="line">    &apos;margin-left&apos;: &apos;-400px&apos;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">$(button3).on(&apos;click&apos;, function()&#123;</span><br><span class="line">  $(&apos;.images&apos;).css(&#123;</span><br><span class="line">    &apos;margin-left&apos;: &apos;-800px&apos;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">$(button4).on(&apos;click&apos;, function()&#123;</span><br><span class="line">  $(&apos;.images&apos;).css(&#123;</span><br><span class="line">    &apos;margin-left&apos;: &apos;-1200px&apos;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">$(button5).on(&apos;click&apos;, function()&#123;</span><br><span class="line">  $(&apos;.images&apos;).css(&#123;</span><br><span class="line">    &apos;margin-left&apos;: &apos;-1600px&apos;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这里通过JS在点击相应button的时候对 <code>.image</code> 的 <code>margin-left</code> 属性进行修改，实现图片的切换效果。</p>
 
       
     </div>
@@ -367,8 +337,8 @@ call的后面的参数可以用arguments得到
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/05/JavaScript数据类型转换方法/" rel="next" title="JavaScript数据类型转换方法">
-                <i class="fa fa-chevron-left"></i> JavaScript数据类型转换方法
+              <a href="/2018/02/27/实现jQuery中的API/" rel="next" title="实现jQuery中的API">
+                <i class="fa fa-chevron-left"></i> 实现jQuery中的API
               </a>
             
           </div>
@@ -376,10 +346,6 @@ call的后面的参数可以用arguments得到
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/24/DOM-API/" rel="prev" title="API">
-                API <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -502,7 +468,7 @@ call的后面的参数可以用arguments得到
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明的五种方式"><span class="nav-number">1.</span> <span class="nav-text">函数声明的五种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的name属性"><span class="nav-number">2.</span> <span class="nav-text">函数的name属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数调用"><span class="nav-number">3.</span> <span class="nav-text">函数调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this-与-arguments"><span class="nav-number">4.</span> <span class="nav-text">this 与 arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用栈"><span class="nav-number">5.</span> <span class="nav-text">调用栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">6.</span> <span class="nav-text">闭包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-准备工作"><span class="nav-number">1.</span> <span class="nav-text">1. 准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-添加JS"><span class="nav-number">2.</span> <span class="nav-text">2. 添加JS</span></a></li></ol></div>
             
 
           </div>
