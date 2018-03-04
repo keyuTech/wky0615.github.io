@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="今天学习了吗">
 <meta property="og:description" content="本文的主要内容是使用jQuery实现轮播的思路及过程  1. 准备工作首先准备好五张（随便几张只要不是一张就行）尺寸合适的图片，在html中用一个div表示视窗，其内用一个div放置准备好的图片。 1234567891011121314&amp;lt;div class=&amp;quot;viewport&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;images&amp;quot;&amp;gt;">
 <meta property="og:image" content="https://i.loli.net/2018/03/03/5a9a56d3375f9.png">
-<meta property="og:updated_time" content="2018-03-04T07:32:56.060Z">
+<meta property="og:updated_time" content="2018-03-04T08:50:49.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用jQuery做个轮播">
 <meta name="twitter:description" content="本文的主要内容是使用jQuery实现轮播的思路及过程  1. 准备工作首先准备好五张（随便几张只要不是一张就行）尺寸合适的图片，在html中用一个div表示视窗，其内用一个div放置准备好的图片。 1234567891011121314&amp;lt;div class=&amp;quot;viewport&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;images&amp;quot;&amp;gt;">
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -260,7 +260,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T10:57:18+08:00">
                 2018-03-03
@@ -331,8 +331,22 @@
     })
   })
 }
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在JS中通过jQuery选中元素并通过 ``` .index() ``` 确定被点击的button的下标，通过下标就可以确认images所需要移动的距离。</span><br><span class="line"></span><br><span class="line">### 4. 实现自动播放</span><br><span class="line"></span><br><span class="line">第三步中已经改进了切换图片的实现方式，不用担心轮播图片的数量，接下来实现自动播放功能。</span><br></pre></td></tr></table></figure></p>
+<p>let n = 0
+setInterval(()=&gt;{
+  allButtons.eq(n%5).trigger(‘click’)
+  n += 1
+}, 1500)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">使用 ``` setInterval ``` 定时器，通过 ``` .eq(n%5) ``` 选中图片（分别为0,1,2,3,4,0,1,2，...），每隔1.5秒使用 ``` trigger(&apos;click&apos;) ``` 模拟click事件，由此来实现自动播放功能。</span><br><span class="line"></span><br><span class="line">### 5. 优化自动播放</span><br><span class="line"></span><br><span class="line">接上一步，虽然已经实现了自动播放的基本功能，但是仍有许多优化的空间。</span><br></pre></td></tr></table></figure></p>
+<p>let n = 0
+let count = $(‘.images &gt; img’).length
+allButtons.eq(n%count).trigger(‘click’).addClass(‘active’).siblings(‘.active’).removeClass(‘active’)
+setInterval(()=&gt;{
+  allButtons.eq(n%count).trigger(‘click’).addClass(‘active’).siblings(‘.active’).removeClass(‘active’)
+  n += 1
+}, 1500)
 ```</p>
-<p>在JS中通过jQuery选中元素并通过 <code>.index()</code> 确定被点击的button的下标，通过下标就可以确认images所需要移动的距离。</p>
+<p>声明一个count变量获取图片的数量，然后为当前展示的图片相应的button添加 <code>active</code> 样式并清除其他button的样式。</p>
 
       
     </div>
@@ -419,10 +433,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -443,7 +457,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">11</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -456,7 +470,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">Tags</span>
                 
               </div>
             
@@ -518,7 +532,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
