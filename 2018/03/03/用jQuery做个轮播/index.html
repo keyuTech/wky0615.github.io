@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="今天学习了吗">
 <meta property="og:description" content="本文的主要内容是使用jQuery实现轮播的思路及过程  1. 准备工作首先准备好五张（随便几张只要不是一张就行）尺寸合适的图片，在html中用一个div表示视窗，其内用一个div放置准备好的图片。 1234567891011121314&amp;lt;div class=&amp;quot;viewport&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;images&amp;quot;&amp;gt;">
 <meta property="og:image" content="https://i.loli.net/2018/03/03/5a9a56d3375f9.png">
-<meta property="og:updated_time" content="2018-03-04T08:50:49.850Z">
+<meta property="og:updated_time" content="2018-03-04T12:41:01.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用jQuery做个轮播">
 <meta name="twitter:description" content="本文的主要内容是使用jQuery实现轮播的思路及过程  1. 准备工作首先准备好五张（随便几张只要不是一张就行）尺寸合适的图片，在html中用一个div表示视窗，其内用一个div放置准备好的图片。 1234567891011121314&amp;lt;div class=&amp;quot;viewport&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;images&amp;quot;&amp;gt;">
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -260,7 +260,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T10:57:18+08:00">
                 2018-03-03
@@ -345,8 +345,59 @@ setInterval(()=&gt;{
   allButtons.eq(n%count).trigger(‘click’).addClass(‘active’).siblings(‘.active’).removeClass(‘active’)
   n += 1
 }, 1500)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">声明一个count变量获取图片的数量，然后为当前展示的图片相应的button添加 ``` active ``` 样式并清除其他button的样式。</span><br><span class="line"></span><br><span class="line">### 6. 实现暂停、播放功能</span><br><span class="line"></span><br><span class="line">通常对于一个轮播来说，光标悬浮在图片上停止播放，光标离开图片继续播放是基本功能，因此此部分实现轮播的暂停、播放功能。</span><br></pre></td></tr></table></figure></p>
+<p>$(‘.viewport’).on(‘mouseenter’, function(){
+  window.clearInterval(clockId)
+})
+$(‘.viewport’).on(‘mouseleave’, function(){
+  clockId = setInterval(()=&gt;{
+    n += 1
+    allButtons.eq(n%count).trigger(‘click’).addClass(‘active’).siblings(‘.active’).removeClass(‘active’)
+}, 1500)
+})
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如此一来，一个简单的轮播就完成了。</span><br><span class="line"></span><br><span class="line">### 7. 代码优化</span><br><span class="line"></span><br><span class="line">上述的代码还有很多可以优化的空间，有很多重复的代码可以使用函数来封装。</span><br></pre></td></tr></table></figure></p>
+<p>let allButtons = $(‘.buttons &gt; button’)</p>
+<p>for(let i = 0; i &lt; allButtons.length; i++){
+  $(allButtons[i]).on(‘click’, function(e){
+    let index = $(e.currentTarget).index()
+    let distance = index * -400
+    $(‘.images’).css({
+      ‘margin-left’: distance + ‘px’
+    })
+    n = index
+    activeButton(allButtons.eq(n))
+  })
+}
+let n = 0
+let count = $(‘.images &gt; img’).length
+slideImg(n%count)
+let clockId = setClock()</p>
+<p>function setClock(){
+  return setInterval(()=&gt;{
+    n += 1
+    slideImg(n%count)
+  }, 1500)
+}
+function slideImg(index){
+  allButtons.eq(index).trigger(‘click’)
+}
+function activeButton($button){
+  $button.addClass(‘active’).siblings(‘.active’).removeClass(‘active’)
+}</p>
+<p>$(‘.viewport’).on(‘mouseenter’, function(){
+  window.clearInterval(clockId)
+})
+$(‘.viewport’).on(‘mouseleave’, function(){
+  clockId = setClock()
+})
 ```</p>
-<p>声明一个count变量获取图片的数量，然后为当前展示的图片相应的button添加 <code>active</code> 样式并清除其他button的样式。</p>
+<p>上面的代码已经进行了一部分优化，封装出 <code>setClock()</code> 函数、 <code>slideImg()</code> 函数和 <code>activeButton</code> 函数，避免了代码的重复。</p>
+<h3 id="8-总结"><a href="#8-总结" class="headerlink" title="8. 总结"></a>8. 总结</h3><p>本文使用jQuery实现轮播的思路如下：
+1. 首先找到对应的按钮，监听按钮的click事件，并添加相应的样式
+2. 设置一个定时器，使得图片循环滚动
+3. 使用trigger()模拟click事件
+4. 监听视窗的mouseenter事件，清除定时器，实现光标悬浮暂停播放功能
+5. 监听视窗的mouseleave事件，添加定时器，实现光标离开继续播放播放功能</p>
 
       
     </div>
@@ -433,10 +484,10 @@ setInterval(()=&gt;{
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -457,7 +508,7 @@ setInterval(()=&gt;{
                 <a href="/archives/">
               
                   <span class="site-state-item-count">11</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -470,7 +521,7 @@ setInterval(()=&gt;{
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -502,7 +553,7 @@ setInterval(()=&gt;{
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-准备工作"><span class="nav-number">1.</span> <span class="nav-text">1. 准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-添加JS"><span class="nav-number">2.</span> <span class="nav-text">2. 添加JS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-准备工作"><span class="nav-number">1.</span> <span class="nav-text">1. 准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-添加JS"><span class="nav-number">2.</span> <span class="nav-text">2. 添加JS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-总结"><span class="nav-number">3.</span> <span class="nav-text">8. 总结</span></a></li></ol></div>
             
 
           </div>
@@ -532,7 +583,7 @@ setInterval(()=&gt;{
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

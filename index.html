@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -260,7 +260,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T10:57:18+08:00">
                 2018-03-03
@@ -347,8 +347,59 @@ setInterval(()=&gt;{
   allButtons.eq(n%count).trigger(‘click’).addClass(‘active’).siblings(‘.active’).removeClass(‘active’)
   n += 1
 }, 1500)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">声明一个count变量获取图片的数量，然后为当前展示的图片相应的button添加 ``` active ``` 样式并清除其他button的样式。</span><br><span class="line"></span><br><span class="line">### 6. 实现暂停、播放功能</span><br><span class="line"></span><br><span class="line">通常对于一个轮播来说，光标悬浮在图片上停止播放，光标离开图片继续播放是基本功能，因此此部分实现轮播的暂停、播放功能。</span><br></pre></td></tr></table></figure></p>
+<p>$(‘.viewport’).on(‘mouseenter’, function(){
+  window.clearInterval(clockId)
+})
+$(‘.viewport’).on(‘mouseleave’, function(){
+  clockId = setInterval(()=&gt;{
+    n += 1
+    allButtons.eq(n%count).trigger(‘click’).addClass(‘active’).siblings(‘.active’).removeClass(‘active’)
+}, 1500)
+})
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如此一来，一个简单的轮播就完成了。</span><br><span class="line"></span><br><span class="line">### 7. 代码优化</span><br><span class="line"></span><br><span class="line">上述的代码还有很多可以优化的空间，有很多重复的代码可以使用函数来封装。</span><br></pre></td></tr></table></figure></p>
+<p>let allButtons = $(‘.buttons &gt; button’)</p>
+<p>for(let i = 0; i &lt; allButtons.length; i++){
+  $(allButtons[i]).on(‘click’, function(e){
+    let index = $(e.currentTarget).index()
+    let distance = index * -400
+    $(‘.images’).css({
+      ‘margin-left’: distance + ‘px’
+    })
+    n = index
+    activeButton(allButtons.eq(n))
+  })
+}
+let n = 0
+let count = $(‘.images &gt; img’).length
+slideImg(n%count)
+let clockId = setClock()</p>
+<p>function setClock(){
+  return setInterval(()=&gt;{
+    n += 1
+    slideImg(n%count)
+  }, 1500)
+}
+function slideImg(index){
+  allButtons.eq(index).trigger(‘click’)
+}
+function activeButton($button){
+  $button.addClass(‘active’).siblings(‘.active’).removeClass(‘active’)
+}</p>
+<p>$(‘.viewport’).on(‘mouseenter’, function(){
+  window.clearInterval(clockId)
+})
+$(‘.viewport’).on(‘mouseleave’, function(){
+  clockId = setClock()
+})
 ```</p>
-<p>声明一个count变量获取图片的数量，然后为当前展示的图片相应的button添加 <code>active</code> 样式并清除其他button的样式。</p>
+<p>上面的代码已经进行了一部分优化，封装出 <code>setClock()</code> 函数、 <code>slideImg()</code> 函数和 <code>activeButton</code> 函数，避免了代码的重复。</p>
+<h3 id="8-总结"><a href="#8-总结" class="headerlink" title="8. 总结"></a>8. 总结</h3><p>本文使用jQuery实现轮播的思路如下：
+1. 首先找到对应的按钮，监听按钮的click事件，并添加相应的样式
+2. 设置一个定时器，使得图片循环滚动
+3. 使用trigger()模拟click事件
+4. 监听视窗的mouseenter事件，清除定时器，实现光标悬浮暂停播放功能
+5. 监听视窗的mouseleave事件，添加定时器，实现光标离开继续播放播放功能</p>
 
           
         
@@ -426,7 +477,7 @@ setInterval(()=&gt;{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-27T10:48:57+08:00">
                 2018-02-27
@@ -572,7 +623,7 @@ setInterval(()=&gt;{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T08:03:09+08:00">
                 2018-02-24
@@ -712,7 +763,7 @@ setInterval(()=&gt;{
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:55:56+08:00">
                 2018-02-20
@@ -876,7 +927,7 @@ call的后面的参数可以用arguments得到
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T16:25:18+08:00">
                 2018-02-05
@@ -1064,7 +1115,7 @@ String()方法适用于将各种类型的数据转换为string类型，包括Sym
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T18:32:33+08:00">
                 2018-01-23
@@ -1221,7 +1272,7 @@ String()方法适用于将各种类型的数据转换为string类型，包括Sym
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T22:28:17+08:00">
                 2018-01-15
@@ -1373,7 +1424,7 @@ String()方法适用于将各种类型的数据转换为string类型，包括Sym
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T17:25:18+08:00">
                 2018-01-09
@@ -1523,7 +1574,7 @@ String()方法适用于将各种类型的数据转换为string类型，包括Sym
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-03T11:20:32+08:00">
                 2018-01-03
@@ -1568,7 +1619,7 @@ String()方法适用于将各种类型的数据转换为string类型，包括Sym
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/03/一小时搭起一个个人博客/">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1647,7 +1698,7 @@ String()方法适用于将各种类型的数据转换为string类型，包括Sym
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-02T20:55:04+08:00">
                 2018-01-02
@@ -1887,7 +1938,7 @@ HTML:
                 <a href="/archives/">
               
                   <span class="site-state-item-count">11</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -1900,7 +1951,7 @@ HTML:
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -1946,7 +1997,7 @@ HTML:
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
