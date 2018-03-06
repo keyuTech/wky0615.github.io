@@ -231,6 +231,277 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/JavaScript练习题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="今天学习了吗">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/06/JavaScript练习题/" itemprop="url">JavaScript练习题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-06T16:18:11+08:00">
+                2018-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>写一个函数，返回从min到max之间的 随机整数，包括min不包括max </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function random(min,max)&#123;</span><br><span class="line">    var val = min + (Math.floor(Math.random() * (max-min)))</span><br><span class="line">    return val</span><br><span class="line">&#125;</span><br><span class="line">var result = random(3,10)</span><br><span class="line">console.log(result)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>写一个函数，生成一个长度为 n 的随机字符串，字符串字符的取值范围包括0到9，a到 z，A到Z</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function getRandStr(len)&#123;</span><br><span class="line">    var result = &apos;&apos;</span><br><span class="line">    var dict = &apos;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&apos;</span><br><span class="line">    for(var i=0; i&lt;len; i++)&#123;</span><br><span class="line">    var index = Math.floor(Math.random() * dict.length)</span><br><span class="line">    result += dict[index]</span><br><span class="line">    &#125;</span><br><span class="line">    return result</span><br><span class="line">&#125;</span><br><span class="line">var str = getRandStr(10); // 0a3iJiRZap</span><br><span class="line">console.log(str)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>写一个函数，生成一个随机 IP 地址，一个合法的 IP 地址为 0.0.0.0~255.255.255.255</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function getRandIP()&#123;</span><br><span class="line">  var randomIP = []</span><br><span class="line">  for(var i = 0; i &lt; 4; i++)&#123;</span><br><span class="line">    var eachIP = Math.floor(Math.random() * 256)</span><br><span class="line">    randomIP.push(eachIP)</span><br><span class="line">  &#125;</span><br><span class="line">  return randomIP.join(&apos;.&apos;)</span><br><span class="line">&#125;</span><br><span class="line">var ip = getRandIP()</span><br><span class="line">console.log(ip) // 10.234.121.45</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>写一个函数，生成一个随机颜色字符串，合法的颜色为#000000~ #ffffff</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function getRandColor()&#123;</span><br><span class="line">  var rgbColor = &apos;#&apos;</span><br><span class="line">  var dict = &apos;0123456789abcdef&apos; </span><br><span class="line">  for(var i = 0; i&lt;6; i++)&#123;</span><br><span class="line">    var index = Math.floor(Math.random() * 16)</span><br><span class="line">    rgbColor += dict[index]</span><br><span class="line">  &#125;</span><br><span class="line">  return rgbColor</span><br><span class="line">&#125;</span><br><span class="line">var color = getRandColor()</span><br><span class="line">console.log(color)   // #3e2f1b</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现一个flatten函数，将一个嵌套多层的数组 array（数组） (嵌套可以是任何层数)转换为只有一层的数组，数组中元素仅基本类型的元素或数组，不存在循环引用的情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">//写法一</span><br><span class="line">function flatten(arr)&#123;</span><br><span class="line">  var arr2 = []</span><br><span class="line">  for(var i = 0; i &lt; arr.length; i++)&#123;</span><br><span class="line">    if(Array.isArray(arr[i]))&#123;</span><br><span class="line">      arr2 = arr2.concat(flatten(arr[i]))</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      arr2.push(arr[i])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return arr2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var arr = [1, 2, 6, [&apos;hello&apos;, 9, [&apos;yyy&apos;, [&apos;wasd&apos;, 789, 123]], 7], [&apos;uiuiui&apos;, 5, 6], &apos;qwer&apos;]</span><br><span class="line">var flat = flatten(arr)</span><br><span class="line">console.log(flat)</span><br><span class="line"></span><br><span class="line">//写法二</span><br><span class="line">function flatten(arr)&#123;</span><br><span class="line">  var arr2 = []</span><br><span class="line">  arr.forEach(function(val)&#123;</span><br><span class="line">    if(Array.isArray(val))&#123;</span><br><span class="line">      arr2 = arr2.concat(flatten(val))</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      arr2.push(val)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  return arr2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var arr = [1, 2, 6, [&apos;hello&apos;, 9, [&apos;yyy&apos;, [&apos;wasd&apos;, 789, 123]], 7], [&apos;uiuiui&apos;, 5, 6], &apos;qwer&apos;]</span><br><span class="line">var flat = flatten(arr)</span><br><span class="line">console.log(flat)</span><br><span class="line"></span><br><span class="line">//写法三</span><br><span class="line">function flatten(arr)&#123;</span><br><span class="line">  return arr.reduce(function(initArr,currentArr)&#123;</span><br><span class="line">    return initArr.concat(Array.isArray(currentArr)?flatten(currentArr):currentArr)</span><br><span class="line">  &#125;,[])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var arr = [1, 2, 6, [&apos;hello&apos;, 9, [&apos;yyy&apos;, [&apos;wasd&apos;, 789, 123]], 7], [&apos;uiuiui&apos;, 5, 6], &apos;qwer&apos;]</span><br><span class="line">var flat = flatten(arr)</span><br><span class="line">console.log(flat)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现一个reduce函数，作用和原生的reduce类似</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//写法一</span><br><span class="line">function reduce(arr, fn, init)&#123;</span><br><span class="line">  var arr2 = arr.concat([])</span><br><span class="line">  if(init !== undefined)&#123;</span><br><span class="line">    arr2.unshift(init)</span><br><span class="line">  &#125;</span><br><span class="line">  while(arr2.length &gt; 1)&#123;</span><br><span class="line">    arr2.splice(0, 2, fn(arr2[0], arr2[1]))</span><br><span class="line">  &#125;</span><br><span class="line">  return arr2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var sum = reduce([1, 2, 3], function(memo, num)&#123; return memo + num; &#125;, 0);</span><br><span class="line">console.log(sum)</span><br><span class="line">//写法二</span><br><span class="line">function reduce(arr, fn, init)&#123;</span><br><span class="line">  var arr2 = (init !== undefined?[]:[init]).concat(arr)</span><br><span class="line">  while(arr2.length &gt; 1)&#123;</span><br><span class="line">    arr2.splice(0, 2, fn(arr2[0], arr2[1]))</span><br><span class="line">  &#125;</span><br><span class="line">  return arr2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var sum = reduce([1, 2, 3], function(memo, num)&#123; return memo + num; &#125;, 0);</span><br><span class="line">console.log(sum)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>写一个函数getChIntv，获取从当前时间到指定日期的间隔时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function getChIntv(initDate)&#123;</span><br><span class="line">  var time = Date.now() - Date.parse(initDate)</span><br><span class="line">  return time</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var str = getChIntv(&quot;2017-02-08 10:30:24&quot;);</span><br><span class="line">console.log(str);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>写一个函数，参数为时间对象毫秒数的字符串格式，返回值为字符串。假设参数为时间对象毫秒数t，根据t的时间分别返回如下字符串:</p>
+</li>
+</ol>
+<ul>
+<li>刚刚（ t 距当前时间不到1分钟时间间隔）</li>
+<li>3分钟前 (t距当前时间大于等于1分钟，小于1小时)</li>
+<li>8小时前 (t 距离当前时间大于等于1小时，小于24小时)</li>
+<li>3天前 (t 距离当前时间大于等于24小时，小于30天)</li>
+<li>2个月前 (t 距离当前时间大于等于30天小于12个月)</li>
+<li>8年前 (t 距离当前时间大于等于12个月)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">function friendlyDate(time)&#123;</span><br><span class="line">  var timeNum = parseInt(time)</span><br><span class="line">  var millieSecond = Date.now() - timeNum</span><br><span class="line">  console.log(millieSecond)</span><br><span class="line">  switch(true)&#123;</span><br><span class="line">    case millieSecond &lt; 60*1000 :</span><br><span class="line">      time = &apos;刚刚&apos;</span><br><span class="line">      break;</span><br><span class="line">    case 60*1000 &lt;= millieSecond &amp;&amp; millieSecond &lt; 60*60*1000 :</span><br><span class="line">      time = &apos;3分钟前&apos;</span><br><span class="line">      break;</span><br><span class="line">    case 60*60*1000 &lt;= millieSecond &amp;&amp; millieSecond &lt; 24*60*60*1000 :</span><br><span class="line">      time = &apos;8小时前&apos;</span><br><span class="line">      break;</span><br><span class="line">    case 24*60*60*1000 &lt;= millieSecond &amp;&amp; millieSecond &lt; 24*60*60*1000*30 :</span><br><span class="line">      time = &apos;3天前&apos;</span><br><span class="line">      break;</span><br><span class="line">    case 24*60*60*1000*30 &lt;= millieSecond &amp;&amp; millieSecond &lt; 24*60*60*1000*30*12 :</span><br><span class="line">      time = &apos;2个月前&apos;</span><br><span class="line">      break;</span><br><span class="line">    case 24*60*60*1000*30*12 &lt;= millieSecond :</span><br><span class="line">      time = &apos;8年前&apos;</span><br><span class="line">      break;</span><br><span class="line">  &#125;</span><br><span class="line">  return time</span><br><span class="line">&#125;</span><br><span class="line">var str = friendlyDate( &apos;1484286699422&apos; ) //  2个月前</span><br><span class="line">var str2 = friendlyDate(&apos;1483941245793&apos;) // 8年前</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/DOM事件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="今天学习了吗">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/05/DOM事件/" itemprop="url">DOM事件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T21:41:13+08:00">
+                2018-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/用jQuery做个轮播/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1532,361 +1803,6 @@ String()方法适用于将各种类型的数据转换为string类型，包括Sym
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/一小时搭起一个个人博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="今天学习了吗">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/03/一小时搭起一个个人博客/" itemprop="url">一小时搭起一个个人博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-03T11:20:32+08:00">
-                2018-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          从头开始，使用Hexo搭建一个个人博客
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/03/一小时搭起一个个人博客/">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/02/CSS常用居中方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="今天学习了吗">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/02/CSS常用居中方法/" itemprop="url">CSS常用居中方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-02T20:55:04+08:00">
-                2018-01-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>在使用CSS对页面进行样式布局的时候，居中是我们最经常用到的布局之一，而居中布局又分为水平居中和垂直居中。</p>
-</blockquote>
-<p>本文将要给大家介绍CSS居中布局的几种常用方法。</p>
-<h2 id="一、水平居中"><a href="#一、水平居中" class="headerlink" title="一、水平居中"></a>一、水平居中</h2><ul>
-<li>行内元素及类行内元素居中</li>
-</ul>
-<p>使用 <code>text-align: center;</code> 令块级父容器中的行内元素居中。
-HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;p class=&quot;inline-center&quot;&gt;</span><br><span class="line">			inline/inline-block/inline-table/inline-flex</span><br><span class="line">		&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">.inline-center &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>需要注意的是 <code>text-align: center;</code> 这种方法只能作用于 <code>inline/inline-block/inline-table/inline-flex</code> 等类型的元素</p>
-<ul>
-<li>块级元素使用 <code>margin: 0 auto;</code> </li>
-</ul>
-<p>HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.center &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对块级元素使用 <code>margin: 0 auto;</code> 使其水平居中需要注意设置居中元素的宽度，高度可以直接设置也可通过内容撑开。</p>
-<ul>
-<li>使用position定位</li>
-</ul>
-<p>使用position对元素进行居中需要设置居中元素的宽度，同时对其父元素设置 <code>position: relative;</code> 
-HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 50%;</span><br><span class="line">    margin-left: -50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此种方法需要在父元素设置为 <code>position: relative;</code> 的情况下，将居中元素设置为 <code>position: absolute;</code> ，同时需要为居中元素设置宽度，随后设置 <code>left: -50%</code> ，最后添加一个 <code>margin-left</code> ，值为负的宽度的一半。</p>
-<ul>
-<li><p>flex居中</p>
-<p><code>justify-content:center;</code> 主轴居中。
-HTML:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: center;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>另外，使用flex布局使元素居中可以不设置元素的宽高，可以用内容将其撑开。</p>
-<ul>
-<li>使用transform</li>
-</ul>
-<p>HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 50%;</span><br><span class="line">    float: left;</span><br><span class="line">    transform: translateX(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>使用transform一样不必设置居中元素的宽高。</p>
-<h2 id="二、垂直居中"><a href="#二、垂直居中" class="headerlink" title="二、垂直居中"></a>二、垂直居中</h2><ul>
-<li>行内元素及类行内元素的垂直居中</li>
-</ul>
-<p>对于父元素高度固定且单行的行内元素及类行内元素垂直居中，最基本方法是将其 <code>line-height</code> 设置为与 <code>height</code> 相同即可</p>
-<p>HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;p class=&quot;center&quot;&gt;</span><br><span class="line">			centercentercentercentercentercentercentercentercentercentercenter</span><br><span class="line">		&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    line-height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>使用 <code>vertical-align</code> </li>
-</ul>
-<p>此方法需要为居中元素的父元素添加 <code>display: table;</code>，并为居中元素添加 <code>display: table-cell;</code>，随后设置其 <code>vertical-align</code> 属性的值为 middle。</p>
-<p>HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;p class=&quot;center&quot;&gt;</span><br><span class="line">			centercentercentercentercentercentercentercentercentercentercenter</span><br><span class="line">		&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    display: table;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    display: table-cell;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>利用position定位</li>
-</ul>
-<p>同水平居中相似，在使元素垂直居中的方法中一样可以使用绝对定位。
-HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    margin-top: -50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>使用transform</li>
-</ul>
-<p>HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">			transformtransformtransformtransform</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    transform: translateY(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>使用CSS3的transform属性允许开发者不设置居中元素的宽高</p>
-<h2 id="三、水平垂直居中"><a href="#三、水平垂直居中" class="headerlink" title="三、水平垂直居中"></a>三、水平垂直居中</h2><ul>
-<li>绝对定位居中</li>
-</ul>
-<p>上文水平居中的方法中我们讲到 <code>margin:0 auto</code> 可以实现水平居中，现在我们使用 <code>margin:auto</code> 一样可以实现水平垂直居中。</p>
-<p>HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&apos;absolute-center&apos;&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.absolute-center &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">    margin: auto;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样一来我们就可以实现 <code>.absolute-center</code> 的水平垂直居中了，但是使用绝对定位居中有以下几点需要注意：
-1. 元素必须声明高度，可以使用固定高度如：<code>px、em</code> 也可使用百分比高度或min-/max-高度。
-2. 最好设置 <code>overflow:hidden</code> 防止内容溢出。
-3. 在Windows Phone设备上不起作用。
-4. 在IE-8以下的浏览器中不支持。</p>
-<ul>
-<li>使用position定位</li>
-</ul>
-<p>在元素的水平居中和垂直居中的内容中我们都提到了使用position定位来实现元素的居中，现在我们将两者结合起来就可以实现水平垂直中。</p>
-<p>HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    margin-top: -50px;</span><br><span class="line">    left: 50%;</span><br><span class="line">    margin-left: -50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>使用transform</li>
-</ul>
-<p>同样，我们使用CSS3的transform属性也可以实现元素的水平垂直居中。
-HTML:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;father-div&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;center&quot;&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>CSS:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.father-div &#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center &#123;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    left: 50%;</span><br><span class="line">    transform: translate(-50%,-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>使用transform属性可以利用内容撑开元素从而避免对元素设置确定的宽高。</p>
-<hr>
-<p>以上就是我所要介绍的几种CSS居中的常用方法，可以在不同的情况下灵活选用，以保证达到最好的效果。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1937,7 +1853,7 @@ HTML:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
