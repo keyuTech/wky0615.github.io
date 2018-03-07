@@ -420,9 +420,34 @@ user-scalable：用户是否可以手动缩放</mtea></p>
 <h3 id="8-请说出至少三种排序的思路，这三种排序的时间复杂度分别为"><a href="#8-请说出至少三种排序的思路，这三种排序的时间复杂度分别为" class="headerlink" title="8.请说出至少三种排序的思路，这三种排序的时间复杂度分别为"></a>8.请说出至少三种排序的思路，这三种排序的时间复杂度分别为</h3><ol>
 <li>O(n*n)</li>
 <li>O(n log2 n)</li>
-<li>O(n + max)</li>
+<li><p>O(n + max)</p>
+</li>
+<li><p>冒泡排序
+相邻元素两两比较，较小的放在前面，较大的放在后面，如果两个元素相等，不改变位置。</p>
+</li>
+<li><p>快速排序
+设定基准点，将小于基准点的值放在左侧，大于基准点的值放在右侧，然后以此循环给小于基准点和大于基准点的数列排序。</p>
+</li>
+<li><p>计数排序
+现有需要排序的数组A，首先新建一个长度为（A中的最大值-A中的最小值+1）的数组B，把数组A中的值减去（A中的最小值）得到此数在数组B中的下标，并置于数组B内，最后将数组B内的元素依次取出放入数组C就得到排序好的数组。</p>
+</li>
 </ol>
-
+<h3 id="9-一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><a href="#9-一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？" class="headerlink" title="9.一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？"></a>9.一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</h3><ol>
+<li>DNS解析：通过输入的URL查询网站的IP地址</li>
+<li>TCP链接：通过三次握手与DNS解析查询到的IP地址建立起TCP连接</li>
+<li>HTTP请求：构建HTTP请求，请求中包含请求行（动词 路径 协议/版本号）、请求报头（Accept、Content-Type、Cookie等内容）、请求正文（使用POST、PUT、PEACH等方法所需要的数据）</li>
+<li>服务器处理请求并返回数据：响应包括状态码（200\304\404等）、响应报头（Accept、Content-Type、Server等内容）、响应正文（返回的资源）</li>
+<li>浏览器渲染解析页面：HTML解析出DOM树，CSS解析出CSS规则树，然后浏览器根据DOM树和CSS规则树计算每个元素的位置和样式，最后浏览器将每个元素绘制在屏幕上</li>
+</ol>
+<h3 id="10-如何实现数组去重？"><a href="#10-如何实现数组去重？" class="headerlink" title="10.如何实现数组去重？"></a>10.如何实现数组去重？</h3><p>假设有数组 array = [1,5,2,3,4,2,3,1,3,4]
+你要写一个函数 unique，使得
+unique(array) 的值为 [1,5,2,3,4]</p>
+<p>ES 6方法一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var array = [1,5,2,3,4,2,3,1,3,4]</span><br><span class="line"></span><br><span class="line">function unique()&#123;</span><br><span class="line">  const mySet = new Set(array)</span><br><span class="line">  return mySet</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(unique()) //Set(5) &#123;1, 5, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure>
+<p>ES 6方法二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var array = [1,5,2,3,4,2,3,1,3,4]</span><br><span class="line"></span><br><span class="line">function unique(a)&#123;</span><br><span class="line">  var result = []</span><br><span class="line">  a.forEach(function(e)&#123;</span><br><span class="line">    if(!result.includes(e))&#123;</span><br><span class="line">      result.push(e)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br><span class="line">console.log( unique(array) ) //(5) [1, 5, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+<p>ES 5方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var array = [1,5,2,3,4,2,3,1,3,4]</span><br><span class="line"></span><br><span class="line">function unique(a)&#123;</span><br><span class="line">  var result = a.filter(function(value, index, array)&#123;</span><br><span class="line">    return array.indexOf(value) === index</span><br><span class="line">  &#125;)</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log( unique(array) ) //(5) [1, 5, 2, 3, 4]</span><br></pre></td></tr></table></figure>
           
         
       
