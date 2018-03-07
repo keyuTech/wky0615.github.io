@@ -311,6 +311,10 @@
 对上面的立即执行函数做一点改动：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;</span><br><span class="line">    var name=&quot;小明&quot;</span><br><span class="line">    return function showName()&#123;</span><br><span class="line">        console.log(name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var yourName = fn()</span><br><span class="line">yourName()</span><br></pre></td></tr></table></figure>
 <p>代码改动后，我们不在函数fn内部调用函数showName()，而是将showName()函数作为fn函数的返回值返回出来，同时，我们在函数外定义了一个变量yourName来引用函数fn()，因此yourName执行时就相当于fn()被调用，而showName()函数一样需要调用其外部的变量name，因此函数showName()和变量name就组成了一个闭包。</p>
+<ul>
+<li>闭包的作用
+闭包可以间接的访问一个变量，也就是可以使一个函数访问到另一个函数内部的变量。</li>
+</ul>
 
           
         
