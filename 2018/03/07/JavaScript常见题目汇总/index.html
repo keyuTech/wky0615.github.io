@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.请写出一个符合 W3C 规范的 HTML 文件，要求页面标题为「我的页面」 页面中引入了一个外部 CSS 文件，文件路径为 /style.css 页面中引入了另一个外部 CSS 文件，路径为 /print.css，该文件仅在打印时生效 页面中引入了另一个外部 CSS 文件，路径为 /mobile.css，该文件仅在设备宽度小于 500 像素时生效 页面中引入了一个外部 JS 文件，路径为 /m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript常见题目汇总">
+<meta property="og:url" content="http://yoursite.com/2018/03/07/JavaScript常见题目汇总/index.html">
+<meta property="og:site_name" content="今天学习了吗">
+<meta property="og:description" content="1.请写出一个符合 W3C 规范的 HTML 文件，要求页面标题为「我的页面」 页面中引入了一个外部 CSS 文件，文件路径为 /style.css 页面中引入了另一个外部 CSS 文件，路径为 /print.css，该文件仅在打印时生效 页面中引入了另一个外部 CSS 文件，路径为 /mobile.css，该文件仅在设备宽度小于 500 像素时生效 页面中引入了一个外部 JS 文件，路径为 /m">
+<meta property="og:updated_time" content="2018-03-07T09:45:36.310Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript常见题目汇总">
+<meta name="twitter:description" content="1.请写出一个符合 W3C 规范的 HTML 文件，要求页面标题为「我的页面」 页面中引入了一个外部 CSS 文件，文件路径为 /style.css 页面中引入了另一个外部 CSS 文件，路径为 /print.css，该文件仅在打印时生效 页面中引入了另一个外部 CSS 文件，路径为 /mobile.css，该文件仅在设备宽度小于 500 像素时生效 页面中引入了一个外部 JS 文件，路径为 /m">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/07/JavaScript常见题目汇总/"/>
+
+
+
+
+
+  <title>JavaScript常见题目汇总 | 今天学习了吗</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">今天学习了吗</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/JavaScript常见题目汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="今天学习了吗">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript常见题目汇总</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-07T17:43:09+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-请写出一个符合-W3C-规范的-HTML-文件，要求"><a href="#1-请写出一个符合-W3C-规范的-HTML-文件，要求" class="headerlink" title="1.请写出一个符合 W3C 规范的 HTML 文件，要求"></a>1.请写出一个符合 W3C 规范的 HTML 文件，要求</h3><p>页面标题为「我的页面」
+页面中引入了一个外部 CSS 文件，文件路径为 /style.css
+页面中引入了另一个外部 CSS 文件，路径为 /print.css，该文件仅在打印时生效
+页面中引入了另一个外部 CSS 文件，路径为 /mobile.css，该文件仅在设备宽度小于 500 像素时生效
+页面中引入了一个外部 JS 文件，路径为 /main.js
+页面中引入了一个外部 JS 文件，路径为 /gbk.js，文件编码为 GBK
+页面中有一个 SVG 标签，SVG 里面有一个直径为 100 像素的圆圈，颜色随意</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;/style.css&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; media=&quot;print&quot; href=&quot;/print.css&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; media=&quot;screen and (max-width: 500px)&quot; href=&quot;/mobile.css&quot;&gt;</span><br><span class="line">    &lt;title&gt;我的页面&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;svg version=&quot;1.1&quot;</span><br><span class="line">         baseProfile=&quot;full&quot;</span><br><span class="line">         width=&quot;200&quot; height=&quot;200&quot;&gt;</span><br><span class="line">      &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;100&quot; fill=&quot;green&quot; /&gt;</span><br><span class="line">    &lt;/svg&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;/main.js&quot;&gt;&lt;script&gt;</span><br><span class="line">    &lt;script src=&quot;/gbk.js&quot; charset=&quot;GBK&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2-移动端是怎么做适配的？"><a href="#2-移动端是怎么做适配的？" class="headerlink" title="2.移动端是怎么做适配的？"></a>2.移动端是怎么做适配的？</h3><ol>
+<li><p>使用<mtea name="viewport">
+<meta>标签包含 <code>name</code>、 <code>content</code> 、 <code>http-equiv</code> 、 <code>charset</code> 、 <code>scheme</code> 五个属性，当 <code>name</code> 的值为 <code>viewport</code> 时可以使页面适应移动端设备，常用的meta viewport标签如下： <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1&quot;&gt;</code>
+其中：
+width：控制viewport宽度的大小，可以指定的一个值（或特殊值），如500，或device-width //特殊值
+height：控制viewport宽度的大小，同上
+initial-scale：控制页面第一次加载时的缩放比例
+maximum-scale：允许用户缩放的最大比例
+minimum-scale：允许用户缩放的最小比例
+user-scalable：用户是否可以手动缩放</mtea></p>
+</li>
+<li><p>媒体查询
+@media有四种媒体类型： <code>all</code> （适用于所有设备）、 <code>screen</code> （用于屏幕）、 <code>print</code> （用于打印设备）、<code>speech</code> （用于发声设备），默认情况下使用 <code>all</code> 类型</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    @media (max-width: 500px) &#123;</span><br><span class="line">        body &#123;</span><br><span class="line">            color: green;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>上述代码默认使用 <code>all</code> 类型，当窗口小于500px时，字体颜色会变成原谅色</p>
+<ol>
+<li>使用动态 rem </li>
+</ol>
+<p>rem代表根元素的 <code>font-size</code> 的大小，当设置元素的 <code>font-size</code> 为1rem时，就表示该元素的字体大小为根元素字体大小的1倍，2rem就为根元素字体大小的2倍…以此类推；同时也可以通过修改根元素的字体大小来改变元素字体的大小。
+使用rem可以成比例地修改元素的字体大小，还可以避免添加的字体样式与继承来的样式相冲突。</p>
+<h3 id="3-用过CSS3吗-实现圆角矩形和阴影怎么做"><a href="#3-用过CSS3吗-实现圆角矩形和阴影怎么做" class="headerlink" title="3.用过CSS3吗? 实现圆角矩形和阴影怎么做?"></a>3.用过CSS3吗? 实现圆角矩形和阴影怎么做?</h3><ul>
+<li><p>实现圆角： 使用 <code>border-radius</code> 
+  例：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px</span><br><span class="line">    border: 1px solid green;</span><br><span class="line">    border-radius: 10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>border-radius</code> 接受px、em、rem等等单位的值
+<code>border-radius</code> 接受1-4个值：
+  1个值：四个角都为同一个值
+  2个值：左上角和右下角使用第一个值，右上角和左下角使用第二个值
+  3个值：左上角使用第一个值，右上、左下使用第二个值，右下角使用第三个值
+  4个值：从左上起顺时针使用1-4个值
+<code>border-top-left-radius</code> 、 <code>border-top-right-radius</code> 、 <code>border-bottom-right-radius</code> 、 <code>border-bottom-left-radius</code> 分别表示四个角，可以单独设置样式</p>
+<ul>
+<li><p>实现阴影：使用 <code>box-shadow</code> </p>
+<p> 例：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    border: 1px solid green;</span><br><span class="line">    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  <code>box-shadow</code> 有五个值： <code>inset</code>（阴影默认在边框之外，使用inset则在边框内） 、 <code>&lt;offset-x&gt;/&lt;offset-y&gt;</code> （设置阴影偏移量，x表示水平偏移，y表示垂直偏移，可以有负值）、 <code>&lt;blur-radius&gt;</code> （此值越大，模糊面积越大，阴影越淡）、 <code>&lt;spread-radius&gt;</code> （默认为0，正值时，阴影扩大；负值时，阴影缩小）、 <code>&lt;color&gt;</code> （设置阴影颜色） </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-什么是闭包，闭包的用途是什么？"><a href="#4-什么是闭包，闭包的用途是什么？" class="headerlink" title="4.什么是闭包，闭包的用途是什么？"></a>4.什么是闭包，闭包的用途是什么？</h3><ul>
+<li>闭包是由函数和与其相关的引用环境组合而成的实体（<a href="https://zh.wikipedia.org/wiki/%E9%97%AD%E5%8C%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6" target="_blank" rel="noopener">wikipedia</a>)）
+闭包由两部分组成：一是函数，二是与这个函数相关的引用环境，即函数及函数内部能访问到的变量组成了一个闭包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(function fn()&#123;</span><br><span class="line">    var name=&quot;小明&quot;</span><br><span class="line">    function showName()&#123;</span><br><span class="line">        console.log(name)</span><br><span class="line">    &#125;</span><br><span class="line">    showName()</span><br><span class="line">&#125;)() //小明</span><br></pre></td></tr></table></figure>
+<p>函数fn是一个立即执行函数，变量 <code>name</code> 和函数 <code>showName()</code> 就组成了一个闭包，这里变量 <code>name</code> 所在的上下文就是上文所说的引用环境。
+对上面的立即执行函数做一点改动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;</span><br><span class="line">    var name=&quot;小明&quot;</span><br><span class="line">    return function showName()&#123;</span><br><span class="line">        console.log(name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var yourName = fn()</span><br><span class="line">yourName()</span><br></pre></td></tr></table></figure>
+<p>代码改动后，我们不在函数fn内部调用函数showName()，而是将showName()函数作为fn函数的返回值返回出来，同时，我们在函数外定义了一个变量yourName来引用函数fn()，因此yourName执行时就相当于fn()被调用，而showName()函数一样需要调用其外部的变量name，因此函数showName()和变量name就组成了一个闭包。
+上述代码中，函数fn()只是为了创建出局部变量name，如果没有fn()则变量name就成为了全局变量，那么其他的函数都可以访问到name，闭包就失去了存在的意义；而 <code>return function showName()</code> 则是为了能在函数fn()外部使用函数showName()</p>
+<ul>
+<li>闭包的作用</li>
+</ul>
+<p>闭包可以间接的访问一个变量，也就是可以使一个函数访问到另一个函数内部的变量。</p>
+<h3 id="5-call、apply、bind-的用法分别是什么？"><a href="#5-call、apply、bind-的用法分别是什么？" class="headerlink" title="5.call、apply、bind 的用法分别是什么？"></a>5.call、apply、bind 的用法分别是什么？</h3><ul>
+<li>call()方法调用一个函数, 其具有一个指定的this值和分别地提供的参数(参数的列表)。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func.call(thisArg, arg1, arg2, ...)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>apply()方法调用一个函数, 其具有一个指定的this值，以及作为一个数组（或类似数组的对象）提供的参数。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func.apply(thisArg[, argsArray])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>bind()方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func.bind(thisArg[, arg1[, arg2[, ...]]])</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>call()和apply()用法相同，都是调用函数，唯一的不同是call()方法从第二个参数开始一个一个的提供参数，而apply()方法的第二个参数是一个数组，数组内存放需要提供的参数。</p>
+</li>
+<li><p>bind()方法用于创建函数，bind()方法的第一个参数就是要绑定的函数，当调用 <code>func</code> 时，this就会指向 <code>thisArg</code> 。</p>
+</li>
+</ul>
+<h3 id="6-请说出至少-8-个-HTTP-状态码，并描述各状态码的意义。"><a href="#6-请说出至少-8-个-HTTP-状态码，并描述各状态码的意义。" class="headerlink" title="6.请说出至少 8 个 HTTP 状态码，并描述各状态码的意义。"></a>6.请说出至少 8 个 HTTP 状态码，并描述各状态码的意义。</h3><p>状态码2xx代表请求成功</p>
+<ul>
+<li><p>200表示请求成功，服务器会返回数据</p>
+</li>
+<li><p>204表示请求成功，但没有返回内容</p>
+</li>
+</ul>
+<p>状态码3xx代表重定向，需要进一步的操作才能完成请求</p>
+<ul>
+<li><p>301表示永久重定向，意味着资源已经搬移到其他地方</p>
+</li>
+<li><p>302表示临时重定向，意味着资源临时搬移到其他地方</p>
+</li>
+</ul>
+<p>状态码4xx表示客户端错误</p>
+<ul>
+<li><p>403表示请求访问服务器资源但是被拒绝</p>
+</li>
+<li><p>404表示服务器找不到请求的资源（很常见的请求错误）</p>
+</li>
+</ul>
+<p>状态码5xx表示服务器错误</p>
+<ul>
+<li><p>500表示服务器执行请求时出错</p>
+</li>
+<li><p>503表示服务器超负载或正停机维护，无法处理请求</p>
+</li>
+</ul>
+<h3 id="7-请写出一个-HTTP-post-请求的内容，包括四部分。"><a href="#7-请写出一个-HTTP-post-请求的内容，包括四部分。" class="headerlink" title="7.请写出一个 HTTP post 请求的内容，包括四部分。"></a>7.请写出一个 HTTP post 请求的内容，包括四部分。</h3><p>其中
+第四部分的内容是 username=ff&amp;password=123
+第二部分必须含有 Content-Type 字段
+请求的路径为 /path</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; POST /path HTTP/1.1</span><br><span class="line">&gt; Host: www.baidu.com</span><br><span class="line">&gt; User-Agent: curl/7.52.1</span><br><span class="line">&gt; Accept: */*</span><br><span class="line">&gt; Content-Length: 23</span><br><span class="line">&gt; Content-Type: application/x-www-form-urlencoded</span><br><span class="line">&gt; </span><br><span class="line">* upload completely sent off: 23 out of 23 bytes</span><br><span class="line">&gt; usrname=ff&amp;password=123</span><br></pre></td></tr></table></figure>
+<h3 id="8-请说出至少三种排序的思路，这三种排序的时间复杂度分别为"><a href="#8-请说出至少三种排序的思路，这三种排序的时间复杂度分别为" class="headerlink" title="8.请说出至少三种排序的思路，这三种排序的时间复杂度分别为"></a>8.请说出至少三种排序的思路，这三种排序的时间复杂度分别为</h3><ol>
+<li>O(n*n)</li>
+<li>O(n log2 n)</li>
+<li>O(n + max)</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/06/对于闭包的理解/" rel="next" title="对于闭包的理解">
+                <i class="fa fa-chevron-left"></i> 对于闭包的理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">wky</p>
+              <p class="site-description motion-element" itemprop="description">Talk is cheap.Show me the code.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-请写出一个符合-W3C-规范的-HTML-文件，要求"><span class="nav-number">1.</span> <span class="nav-text">1.请写出一个符合 W3C 规范的 HTML 文件，要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-移动端是怎么做适配的？"><span class="nav-number">2.</span> <span class="nav-text">2.移动端是怎么做适配的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-用过CSS3吗-实现圆角矩形和阴影怎么做"><span class="nav-number">3.</span> <span class="nav-text">3.用过CSS3吗? 实现圆角矩形和阴影怎么做?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-什么是闭包，闭包的用途是什么？"><span class="nav-number">4.</span> <span class="nav-text">4.什么是闭包，闭包的用途是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-call、apply、bind-的用法分别是什么？"><span class="nav-number">5.</span> <span class="nav-text">5.call、apply、bind 的用法分别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-请说出至少-8-个-HTTP-状态码，并描述各状态码的意义。"><span class="nav-number">6.</span> <span class="nav-text">6.请说出至少 8 个 HTTP 状态码，并描述各状态码的意义。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-请写出一个-HTTP-post-请求的内容，包括四部分。"><span class="nav-number">7.</span> <span class="nav-text">7.请写出一个 HTTP post 请求的内容，包括四部分。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-请说出至少三种排序的思路，这三种排序的时间复杂度分别为"><span class="nav-number">8.</span> <span class="nav-text">8.请说出至少三种排序的思路，这三种排序的时间复杂度分别为</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wky</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
