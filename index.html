@@ -231,6 +231,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/我可能学了假的CSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="今天学习了吗">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/12/我可能学了假的CSS/" itemprop="url">我可能学了假的CSS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T11:22:12+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>前段时间在知乎上看到一个问题：为什么CSS这么难学？其中<a href="https://www.zhihu.com/people/zhihusucks/activities" target="_blank" rel="noopener">@方应杭</a>的回答拿了最高赞，按照答主的话来说，CSS难学就是因为三个字：不正交。</p>
+</blockquote>
+<p>接下来我们就来举些例子来展示一下CSS的 “不正交” 。</p>
+<h3 id="1-border影响margin"><a href="#1-border影响margin" class="headerlink" title="1. border影响margin"></a>1. border影响margin</h3><p>先来给大家展示一个神奇的事情：
+<img src="http://upload-images.jianshu.io/upload_images/6878519-c219e5979c00e530.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="起始代码">
+大家先看一波基本的代码，这里有三个div，宽高都为100px，外边距为20px，1px的边框，我们都知道相邻的兄弟姐妹元素外边距会产生合并，所以三个div之间的距离是20px，没毛病~
+<img src="http://upload-images.jianshu.io/upload_images/6878519-89552b7c6399d7a5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改1">
+上图是我们做了第一次修改之后的样子，诶？加了一个只有边框的<code>&lt;div class=&quot;child&quot;&gt;&lt;/div&gt;</code>就把外边距合并的问题解决了？我操作的是border为什么会影响到margin？
+不着急，接下来还有更神奇的事情
+<img src="http://upload-images.jianshu.io/upload_images/6878519-210602e9c949f689.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改2">
+<img src="http://upload-images.jianshu.io/upload_images/6878519-1c10705fde76608c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image">
+0.1px的border不应该四舍五入变为0了吗，而且确实是这样的啊，output中已经看不到border了，但是为啥前两个div之间的距离还是40px啊？逗我吗？</p>
+<h3 id="2-display影响list的小圆点"><a href="#2-display影响list的小圆点" class="headerlink" title="2. display影响list的小圆点"></a>2. display影响list的小圆点</h3><p>同样我们先看一下起始的代码：
+<img src="http://upload-images.jianshu.io/upload_images/6878519-b3b16f513401535c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="list">
+这里是一个只有默认样式的List，注意每个li之前的小圆点，大家都知道这是无序列表的默认样式，接下来我们要做一点微小的工作
+<img src="http://upload-images.jianshu.io/upload_images/6878519-977234508a7d17a1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="display: block">
+<img src="http://upload-images.jianshu.io/upload_images/6878519-835e1a99f51a0c4b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image">
+What ？！说好的小圆点呢？设置了<code>display: block</code>小圆点就没了？你以为这就结束了？naive！
+<img src="http://upload-images.jianshu.io/upload_images/6878519-0a49866705320be0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="display: inline">
+<img src="http://upload-images.jianshu.io/upload_images/6878519-cc2333df51826ede.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="display: inline-block">
+<img src="http://upload-images.jianshu.io/upload_images/6878519-f44ca3b430141200.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="display: flex">
+看到了吗？我们对 li 设置的所有 display 全都会导致小圆点消失，除了上图展示出来的 <code>display: block</code>  、<code>display: inline</code> 、 <code>display: inline-block</code> 、 <code>display: flex</code> ，<code>display: table</code>一样会出现这种情况。</p>
+<h3 id="3-position-absolute影响display-inline"><a href="#3-position-absolute影响display-inline" class="headerlink" title="3. position: absolute影响display: inline"></a>3. position: absolute影响display: inline</h3><p>老规矩，我们先上初始代码
+<img src="http://upload-images.jianshu.io/upload_images/6878519-bc85ff1b0e38dab3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="起始代码">
+这里是一个块级父元素，其内是一个设置了<code>display: inline</code>的子元素，此时子元素的display是inline这一点不用怀疑，但是我们对子元素做一点小小的改动，对它设置一个<code>position: absolute</code>，事情就不是这么简单了</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/6878519-c16a16319b0ec2e4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="position: absolute">
+此时我们看到子元素的样式就是我们所想要的，但是我们打开控制台，找到Computed
+<img src="http://upload-images.jianshu.io/upload_images/6878519-6e25f02281a59c84.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Console">
+在Computed中查找display属性
+<img src="http://upload-images.jianshu.io/upload_images/6878519-43f2a58221d698d0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Computed">
+<img src="http://upload-images.jianshu.io/upload_images/6878519-c2a505f70d9cab99.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image">
+说好的 inline 呢？为什么子元素变成 block 了？</p>
+<h3 id="4-transform影响position：-fixed"><a href="#4-transform影响position：-fixed" class="headerlink" title="4. transform影响position： fixed"></a>4. transform影响position： fixed</h3><p>此时的我已经不想再哔哔了……我们直接看
+<img src="http://upload-images.jianshu.io/upload_images/6878519-92578ecf37bb0ab1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="position: fixed">
+emmmmmm……看起来是没错，<code>position: fixed</code>相对于视窗定位，此时的子元素处在iframe的左下角完全没问题，然而……
+<img src="http://upload-images.jianshu.io/upload_images/6878519-ab02afe52c56eb63.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="transform: scale(1)">
+(╯°Д°)╯︵┻━┻ 说好的 fixed 相对于视窗定位呢？我一定是学了假的CSS
+<img src="http://upload-images.jianshu.io/upload_images/6878519-349485d53d32da50.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文中所举出的例子在CSS规范中都能找到解释，但是，那么长的规范让我全都看完，说实话我做不到，本人在这里只是将这些能体现CSS “不正交”的例子讲出来，提醒各位看客在操作中要注意这些地方，也给自己留个笔记。另外也要感谢<a href="https://www.zhihu.com/people/zhihusucks/activities" target="_blank" rel="noopener">@方应杭</a>的文章，各位如果觉得本文还不错，记得点个赞(｀・ω・´)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/JavaScript常见题目汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1740,163 +1899,6 @@ parseInt() 函数解析一个字符串参数，并返回一个指定基数的整
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/常见排序算法的伪代码及流程图/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="今天学习了吗">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/23/常见排序算法的伪代码及流程图/" itemprop="url">常见排序算法的伪代码及流程图</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T18:32:33+08:00">
-                2018-01-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>本文涉及的排序算法有：冒泡排序、选择排序、桶排序、计数排序、堆排序</p>
-</blockquote>
-<ul>
-<li><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3></li>
-</ul>
-<p>伪代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">a &lt;- &#123;</span><br><span class="line">  &apos;0&apos;:6,</span><br><span class="line">  &apos;1&apos;:3,</span><br><span class="line">  &apos;2&apos;:7,</span><br><span class="line">  &apos;3&apos;:11,</span><br><span class="line">  &apos;4&apos;:4,</span><br><span class="line">  &apos;5&apos;:9,</span><br><span class="line">  &apos;length&apos;:6</span><br><span class="line">&#125;</span><br><span class="line">轮数n &lt;- 1</span><br><span class="line">while (n &lt; a[&apos;length&apos;])</span><br><span class="line">  选中的数字的下标i &lt;- 0</span><br><span class="line">  while (i &lt; a[&apos;length&apos;] - n)</span><br><span class="line">    if (a[i] &lt; a[i+1])</span><br><span class="line">      i &lt;- i+1</span><br><span class="line">    else</span><br><span class="line">      t &lt;- a[i]</span><br><span class="line">      a[i] &lt;- a[i+1]</span><br><span class="line">      a[i+1] &lt;- t</span><br><span class="line">      i &lt;- i+1</span><br><span class="line">    end</span><br><span class="line">    n &lt;- n+1</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p>流程图：
-<img src="http://ww1.sinaimg.cn/large/691e2a69gy1fnqb3k9avuj20d50pnaaz.jpg" alt="冒泡排序流程图"></p>
-<ul>
-<li><h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3></li>
-</ul>
-<p>伪代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">a &lt;- &#123;</span><br><span class="line">  &apos;0&apos;:3,</span><br><span class="line">  &apos;1&apos;:5,</span><br><span class="line">  &apos;2&apos;:1,</span><br><span class="line">  &apos;3&apos;:7,</span><br><span class="line">  &apos;4&apos;:2,</span><br><span class="line">  &apos;5&apos;:6,</span><br><span class="line">  &apos;length&apos;:6</span><br><span class="line">&#125;</span><br><span class="line">轮数n &lt;- 1</span><br><span class="line">while (n &lt; a[&apos;length&apos;])</span><br><span class="line">  minIndex &lt;- n-1</span><br><span class="line">  index &lt;- minIndex+1</span><br><span class="line">  while (index &lt; a[&apos;length&apos;])</span><br><span class="line">    if(a[minIndex] &lt; a[index])</span><br><span class="line">      index &lt;- index+1</span><br><span class="line">    else</span><br><span class="line">      minIndex &lt;- index</span><br><span class="line">      index &lt;- index+1</span><br><span class="line">    end</span><br><span class="line">  t &lt;- a[n-1]</span><br><span class="line">  a[n-1] &lt;- a[minIndex]</span><br><span class="line">  a[minIndex] &lt;- t</span><br><span class="line">  index &lt;- index+1</span><br><span class="line">  end</span><br><span class="line">print a</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p>流程图：
-<img src="http://ww1.sinaimg.cn/large/691e2a69gy1fnrp6mvn90j20b20srjsg.jpg" alt="选择排序流程图"></p>
-<ul>
-<li><h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3></li>
-</ul>
-<p>伪代码：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">a &lt;- &#123;</span><br><span class="line">  &apos;0&apos;:0,</span><br><span class="line">  &apos;1&apos;:5,</span><br><span class="line">  &apos;2&apos;:1,</span><br><span class="line">  &apos;3&apos;:7,</span><br><span class="line">  &apos;4&apos;:2,</span><br><span class="line">  &apos;5&apos;:5,</span><br><span class="line">  &apos;length&apos;:6</span><br><span class="line">&#125;</span><br><span class="line">hash &lt;- &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//入桶</span><br><span class="line">index &lt;- 0</span><br><span class="line">while (index &lt; a[&apos;length&apos;])</span><br><span class="line">  number &lt;- a[&apos;index&apos;]</span><br><span class="line">  if hash[number] == undefined</span><br><span class="line">    hash[number] &lt;- 1</span><br><span class="line">  else</span><br><span class="line">    hash[number] &lt;- hash[number] + 1</span><br><span class="line">  end</span><br><span class="line">  index &lt;- index + 1</span><br><span class="line">end</span><br><span class="line">//出桶</span><br><span class="line">index2 &lt;- 0</span><br><span class="line">//确定hash长度（最大的数+1）</span><br><span class="line">max &lt;-findMax(a)</span><br><span class="line">/*</span><br><span class="line">findMax(a):</span><br><span class="line">  index3 &lt;- 0</span><br><span class="line">  max &lt;- a[&apos;index3&apos;]</span><br><span class="line">  while(index3 &lt; a[&apos;length&apos;]-1)</span><br><span class="line">    if(a[&apos;index3&apos;] &lt; a[&apos;index3&apos;+1])</span><br><span class="line">      max &lt;- a[&apos;index3&apos;+1]</span><br><span class="line">    else</span><br><span class="line">      max &lt;- a[&apos;index3&apos;]</span><br><span class="line">  index3 &lt;- index3+1</span><br><span class="line">  end</span><br><span class="line">*/</span><br><span class="line">while(index2 &lt; max+1)</span><br><span class="line">  count &lt;- hash[index2]</span><br><span class="line">  if count != undefined</span><br><span class="line">    countIndex &lt;- 0</span><br><span class="line">    while(countIndex &lt; count)</span><br><span class="line">      newArr.push(index2)</span><br><span class="line">      countIndex &lt;- countIndex+1</span><br><span class="line">    end</span><br><span class="line">  end</span><br><span class="line">  index2 &lt;- index2+1</span><br><span class="line">print newArr</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<p>流程图：
-<img src="http://ww1.sinaimg.cn/large/691e2a69ly1fnsokdbh2lj20bt1c7q4s.jpg" alt=""></p>
-<ul>
-<li><h3 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h3></li>
-</ul>
-<p>伪代码：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">a &lt;- &#123;</span><br><span class="line">  &apos;0&apos;:0,</span><br><span class="line">  &apos;1&apos;:5,</span><br><span class="line">  &apos;2&apos;:1,</span><br><span class="line">  &apos;3&apos;:7,</span><br><span class="line">  &apos;4&apos;:2,</span><br><span class="line">  &apos;5&apos;:5,</span><br><span class="line">  &apos;length&apos;:6</span><br><span class="line">&#125;</span><br><span class="line">hash &lt;- &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//入桶</span><br><span class="line">capacity &lt;- 10 //每个桶存放的数字范围</span><br><span class="line">findMaxMin(a): //找出数组a中最大值和最小值</span><br><span class="line">  index3 &lt;- 0</span><br><span class="line">  max &lt;- a[&apos;index3&apos;]</span><br><span class="line">  min &lt;- a[&apos;index3&apos;]</span><br><span class="line">  while(index3 &lt; a[&apos;length&apos;]-1)</span><br><span class="line">    if(a[&apos;index3&apos;] &gt; max)</span><br><span class="line">      max &lt;- a[&apos;index3&apos;]</span><br><span class="line">    if(a[&apos;index3&apos;] &lt; min)</span><br><span class="line">      min &lt;- a[index3]</span><br><span class="line">  index3 &lt;- index3+1</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">bucketCount &lt;- 取整[(max-min)/capacity] //确定桶的数量</span><br><span class="line"></span><br><span class="line">index &lt;- 0</span><br><span class="line">while(index &lt; a[&apos;length&apos;])</span><br><span class="line">  bucketIndex &lt;- 0</span><br><span class="line">  while(bucketIndex &lt; bucketCount)</span><br><span class="line">    if a[index] &lt;= (min+capacity*(bucketIndex+1)) &amp;&amp; a[index] &gt; (min+capacity*bucketIndex)</span><br><span class="line">      if(bucket[bucketIndex] == undefined)</span><br><span class="line">        bucket[bucketIndex] &lt;- []</span><br><span class="line">      else</span><br><span class="line">        bucket[bucketIndex].push(a[index])</span><br><span class="line">      end</span><br><span class="line">    end</span><br><span class="line">  bucketIndex &lt;- bucketIndex+1</span><br><span class="line">  end</span><br><span class="line">index &lt;- index+1</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">//用冒泡排序将桶内数据排序</span><br><span class="line">轮数n &lt;- 1</span><br><span class="line">while (n &lt; bucketIndex)</span><br><span class="line">  minIndex &lt;- n-1</span><br><span class="line">  index &lt;- minIndex+1</span><br><span class="line">  while (index &lt; bucketIndex)</span><br><span class="line">    if(bucket[bucketIndex][minIndex] &lt; bucket[bucketIndex][index])</span><br><span class="line">      index &lt;- index+1</span><br><span class="line">    else</span><br><span class="line">      minIndex &lt;- index</span><br><span class="line">      index &lt;- index+1</span><br><span class="line">    end</span><br><span class="line">  t &lt;- bucket[bucketIndex][n-1]</span><br><span class="line">  bucket[bucketIndex][n-1] &lt;- bucket[bucketIndex][minIndex]</span><br><span class="line">  bucket[bucketIndex][minIndex] &lt;- t</span><br><span class="line">  index &lt;- index+1</span><br><span class="line">  end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">//出桶</span><br><span class="line">outBucket &lt;- 0</span><br><span class="line">while(outBucket &lt; bucketCount)</span><br><span class="line">  if bucket[outBucket] != undefined</span><br><span class="line">    outBucketIndex &lt;- 0</span><br><span class="line">    while(outBucketIndex &lt; bucket[outBucket].length)</span><br><span class="line">      newArr.push(bucket[outBucket][outBucketIndex])</span><br><span class="line">    end</span><br><span class="line">  outBucket &lt;- outBucket+1</span><br><span class="line">  end</span><br><span class="line">print newArr</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<p>流程图：
-<img src="http://ww1.sinaimg.cn/large/691e2a69ly1fnsxqdeaouj20jq1tgwii.jpg" alt="桶排序流程图"></p>
-<ul>
-<li><h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3></li>
-</ul>
-<p>伪代码：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>流程图：
-<img src="" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1947,7 +1949,7 @@ parseInt() 函数解析一个字符串参数，并返回一个指定基数的整
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
