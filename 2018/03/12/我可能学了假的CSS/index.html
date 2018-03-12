@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/12/我可能学了假的CSS/index.html">
 <meta property="og:site_name" content="今天学习了吗">
 <meta property="og:description" content="前段时间在知乎上看到一个问题：为什么CSS这么难学？其中@方应杭的回答拿了最高赞，按照答主的话来说，CSS难学就是因为三个字：不正交。  接下来我们就来举些例子来展示一下CSS的 “不正交” 。 1. border影响margin先来给大家展示一个神奇的事情：  大家先看一波基本的代码，这里有三个div，宽高都为100px，外边距为20px，1px的边框，我们都知道相邻的兄弟姐妹元素外边距会产生">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6878519-c219e5979c00e530.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://i.loli.net/2018/03/12/5aa5f3c526787.png">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6878519-89552b7c6399d7a5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6878519-210602e9c949f689.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6878519-1c10705fde76608c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -103,11 +103,11 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6878519-92578ecf37bb0ab1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6878519-ab02afe52c56eb63.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6878519-349485d53d32da50.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-12T03:23:02.608Z">
+<meta property="og:updated_time" content="2018-03-12T03:28:53.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我可能学了假的CSS">
 <meta name="twitter:description" content="前段时间在知乎上看到一个问题：为什么CSS这么难学？其中@方应杭的回答拿了最高赞，按照答主的话来说，CSS难学就是因为三个字：不正交。  接下来我们就来举些例子来展示一下CSS的 “不正交” 。 1. border影响margin先来给大家展示一个神奇的事情：  大家先看一波基本的代码，这里有三个div，宽高都为100px，外边距为20px，1px的边框，我们都知道相邻的兄弟姐妹元素外边距会产生">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/6878519-c219e5979c00e530.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="https://i.loli.net/2018/03/12/5aa5f3c526787.png">
 
 
 
@@ -203,7 +203,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -213,7 +213,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -277,7 +277,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T11:22:12+08:00">
                 2018-03-12
@@ -322,7 +322,7 @@
 </blockquote>
 <p>接下来我们就来举些例子来展示一下CSS的 “不正交” 。</p>
 <h3 id="1-border影响margin"><a href="#1-border影响margin" class="headerlink" title="1. border影响margin"></a>1. border影响margin</h3><p>先来给大家展示一个神奇的事情：
-<img src="http://upload-images.jianshu.io/upload_images/6878519-c219e5979c00e530.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="起始代码">
+<img src="https://i.loli.net/2018/03/12/5aa5f3c526787.png" alt="起始代码">
 大家先看一波基本的代码，这里有三个div，宽高都为100px，外边距为20px，1px的边框，我们都知道相邻的兄弟姐妹元素外边距会产生合并，所以三个div之间的距离是20px，没毛病~
 <img src="http://upload-images.jianshu.io/upload_images/6878519-89552b7c6399d7a5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改1">
 上图是我们做了第一次修改之后的样子，诶？加了一个只有边框的<code>&lt;div class=&quot;child&quot;&gt;&lt;/div&gt;</code>就把外边距合并的问题解决了？我操作的是border为什么会影响到margin？
@@ -443,10 +443,10 @@ emmmmmm……看起来是没错，<code>position: fixed</code>相对于视窗定
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -467,7 +467,7 @@ emmmmmm……看起来是没错，<code>position: fixed</code>相对于视窗定
                 <a href="/archives/">
               
                   <span class="site-state-item-count">16</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -480,7 +480,7 @@ emmmmmm……看起来是没错，<code>position: fixed</code>相对于视窗定
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -542,7 +542,7 @@ emmmmmm……看起来是没错，<code>position: fixed</code>相对于视窗定
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
