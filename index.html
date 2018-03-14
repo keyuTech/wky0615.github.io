@@ -103,7 +103,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Penulis'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Beranda
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Arsip
+            Archiv
           </a>
         </li>
       
@@ -217,6 +217,143 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/自己动手封装AJAX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="今天学习了吗">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/14/自己动手封装AJAX/" itemprop="url">自己动手封装AJAX</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T21:29:04+08:00">
+                2018-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、手写AJAX"><a href="#一、手写AJAX" class="headerlink" title="一、手写AJAX"></a>一、手写AJAX</h3><p>首先我们先用原生JS手写一个AJAX：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let xhr = new XMLHttpRequest()</span><br><span class="line">xhr.open(&apos;POST&apos;, &apos;/xxx&apos;)</span><br><span class="line">xhr.onreadystatechange = (e) =&gt; &#123;</span><br><span class="line">  if(xhr.readyState === 4)&#123;</span><br><span class="line">    if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300)&#123;</span><br><span class="line">      console.log(&apos;请求成功&apos;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      console.log(&apos;请求失败&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.send(&apos;hi&apos;)</span><br></pre></td></tr></table></figure>
+<p>这是一个POST请求的AJAX，可以通过修改 <code>open</code> 的第一个参数来修改请求类型，同时 <code>send()</code> 中的参数就是请求的第四部分-请求体（GET请求不需要在 <code>send()</code> 中传参）。</p>
+<h3 id="二、封装这个AJAX"><a href="#二、封装这个AJAX" class="headerlink" title="二、封装这个AJAX"></a>二、封装这个AJAX</h3><p>我们在<a href="https://www.jianshu.com/p/c57facf913bc" target="_blank" rel="noopener">实现jQuery中的两个API</a>提到过用函数封装代码的做法，这次一样用一个函数来封装AJAX</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery.ajax = function(method, url, body, successFn, failFn)&#123;</span><br><span class="line">  xhr.open(method, url)</span><br><span class="line">  xhr.onreadystatechange = ()=&gt;&#123;</span><br><span class="line">        if(xhr.readyState === 4)&#123;</span><br><span class="line">          if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300)&#123;</span><br><span class="line">            console.log(&apos;成功&apos;)</span><br><span class="line">            successFn.call(undefined, xhr.responseText)</span><br><span class="line">          &#125;else&#123;</span><br><span class="line">            console.log(&apos;失败&apos;)</span><br><span class="line">            failFn.call(undefined, xhr)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;  </span><br><span class="line">  xhr.send(body)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.jQuery.ajax(</span><br><span class="line">  &apos;POST&apos;, </span><br><span class="line">  &apos;/xxx&apos;, </span><br><span class="line">  &apos;a=1&apos;, </span><br><span class="line">  (responseText)=&gt;&#123;</span><br><span class="line">    console.log(responseText)  </span><br><span class="line">  &#125;, </span><br><span class="line">  ()=&gt;&#123;</span><br><span class="line">    console.log(&apos;请求失败&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>这里我们用 <code>window.jQuery.ajax</code> 这个函数来封装第一步中的代码，函数接受五个参数：请求类型、请求的URL、请求体、请求成功时的回调函数、请求失败时的回调函数。</p>
+<h3 id="三、改进window-jQuery-ajax"><a href="#三、改进window-jQuery-ajax" class="headerlink" title="三、改进window.jQuery.ajax"></a>三、改进window.jQuery.ajax</h3><p>虽然在上一步中我们已经成功封装了一个函数实现AJAX，但是这个函数仍有许多不足，比如我们在使用这个函数的时候并不知道函数的每一个参数代表什么意思，我们只有去看这个函数的源码才知道；再比如我如果使用GET请求，那我不需要在请求中传入请求体，那么函数的第三个参数只能用 <code>null</code> 或 <code>undefined</code> ，并不能直接不传第三个参数。
+接下来我们对这个函数作进一步的改进：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery.ajax = function(options)&#123;</span><br><span class="line">  let method = options.method</span><br><span class="line">  let url = options.url</span><br><span class="line">  let body = options.body</span><br><span class="line">  let successFn = options.successFn</span><br><span class="line">  let failFn = options.failFn</span><br><span class="line"></span><br><span class="line">  let xhr = new XMLHttpRequest()</span><br><span class="line">  xhr.open(method, url)</span><br><span class="line">  xhr.onreadystatechange = ()=&gt;&#123;</span><br><span class="line">    if(xhr.readyState === 4)&#123;</span><br><span class="line">      if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300)&#123;</span><br><span class="line">        console.log(&apos;成功&apos;)</span><br><span class="line">        successFn.call(undefined, xhr.responseText)</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        console.log(&apos;失败&apos;)</span><br><span class="line">        failFn.call(undefined, xhr)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">  xhr.send(body)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myButton.addEventListener(&apos;click&apos;, function(e)&#123;</span><br><span class="line">  let obj = &#123;</span><br><span class="line">    method: &apos;post&apos;,</span><br><span class="line">    url: &apos;/xxx&apos;,</span><br><span class="line">    body: &apos;a=1&apos;,</span><br><span class="line">    successFn: (responseText)=&gt;&#123;</span><br><span class="line">      console.log(responseText)</span><br><span class="line">    &#125;,</span><br><span class="line">    failFn: (xhr)=&gt;&#123;</span><br><span class="line">      console.log(&apos;请求失败&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  window.jQuery.ajax(obj)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这里使用了一种参数命名的方法，我们用一个对象表示所有的参数，然后在函数内获取每个具体的参数，这样就可以不用记住参数的顺序，同时能避免少传参数导致错误的情况。</p>
+<h3 id="四、为函数添加修改请求头功能"><a href="#四、为函数添加修改请求头功能" class="headerlink" title="四、为函数添加修改请求头功能"></a>四、为函数添加修改请求头功能</h3><p>现在我们还缺少一个修改请求头的功能，添加功能后的代码如下：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery.ajax = function(options)&#123;</span><br><span class="line">  let method = options.method</span><br><span class="line">  let url = options.url</span><br><span class="line">  let body = options.body</span><br><span class="line">  let headers = options.headers</span><br><span class="line">  let successFn = options.successFn</span><br><span class="line">  let failFn = options.failFn</span><br><span class="line"></span><br><span class="line">  let xhr = new XMLHttpRequest()</span><br><span class="line">  xhr.open(method, url)</span><br><span class="line">  for(let key in headers)&#123;</span><br><span class="line">    let value = headers[key]</span><br><span class="line">    xhr.setRequestHeader(key, value)</span><br><span class="line">  &#125;</span><br><span class="line">  xhr.onreadystatechange = ()=&gt;&#123;</span><br><span class="line">    if(xhr.readyState === 4)&#123;</span><br><span class="line">      if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300)&#123;</span><br><span class="line">        console.log(&apos;成功&apos;)</span><br><span class="line">        successFn.call(undefined, xhr.responseText)</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        console.log(&apos;失败&apos;)</span><br><span class="line">        failFn.call(undefined, xhr)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">  xhr.send(body)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myButton.addEventListener(&apos;click&apos;, function(e)&#123;</span><br><span class="line">  let obj = &#123;</span><br><span class="line">    method: &apos;post&apos;,</span><br><span class="line">    url: &apos;/xxx&apos;,</span><br><span class="line">    body: &apos;a=1&apos;,</span><br><span class="line">    headers: &#123;</span><br><span class="line">      &apos;Content-Type&apos;: &apos;x-www-foorm-urlencoded&apos;,</span><br><span class="line">      &apos;xxx&apos;: &apos;yyy&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    successFn: (responseText)=&gt;&#123;</span><br><span class="line">      console.log(responseText)</span><br><span class="line">    &#125;,</span><br><span class="line">    failFn: (xhr)=&gt;&#123;</span><br><span class="line">      console.log(&apos;请求失败&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  window.jQuery.ajax(obj)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>在用户传入 <code>headers</code> 对象之后，我们在函数内遍历这个对象，获取它的 <code>key</code> 和 <code>value</code> ，并将这两个值作为参数传入 <code>setRequestHeader()</code> 就完成了修改请求头的功能。</p>
+<h3 id="五、简化代码"><a href="#五、简化代码" class="headerlink" title="五、简化代码"></a>五、简化代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery.ajax = function(&#123;method, url, body, headers, successFn, failFn&#125;)&#123;</span><br><span class="line">  let xhr = new XMLHttpRequest()</span><br><span class="line">  xhr.open(method, url)</span><br><span class="line">  for(let key in headers)&#123;</span><br><span class="line">    let value = headers[key]</span><br><span class="line">    xhr.setRequestHeader(key, value)</span><br><span class="line">  &#125;</span><br><span class="line">  xhr.onreadystatechange = ()=&gt;&#123;</span><br><span class="line">    if(xhr.readyState === 4)&#123;</span><br><span class="line">      if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300)&#123;</span><br><span class="line">        console.log(&apos;成功&apos;)</span><br><span class="line">        successFn.call(undefined, xhr.responseText)</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        console.log(&apos;失败&apos;)</span><br><span class="line">        failFn.call(undefined, xhr)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">  xhr.send(body)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>直接使用ES6中的解构赋值 <code>{method, url, body, headers, successFn, failFn}</code> 来简化参数</p>
+<hr>
+<p>这样一来，我们就能使用 <code>jQuery.ajax(url,method,body,successFn, failFn)</code> 这样的API了。
+以上。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -260,7 +397,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T23:32:26+08:00">
                 2018-03-13
@@ -396,7 +533,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T11:22:12+08:00">
                 2018-03-12
@@ -555,7 +692,7 @@ emmmmmm……看起来是没错，<code>position: fixed</code>相对于视窗定
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-07T17:43:09+08:00">
                 2018-03-07
@@ -819,7 +956,7 @@ unique(array) 的值为 [1,5,2,3,4]</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-06T21:35:42+08:00">
                 2018-03-06
@@ -951,7 +1088,7 @@ unique(array) 的值为 [1,5,2,3,4]</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-06T16:18:11+08:00">
                 2018-03-06
@@ -1103,7 +1240,7 @@ unique(array) 的值为 [1,5,2,3,4]</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T21:41:13+08:00">
                 2018-03-05
@@ -1222,7 +1359,7 @@ unique(array) 的值为 [1,5,2,3,4]</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T10:57:18+08:00">
                 2018-03-03
@@ -1439,7 +1576,7 @@ $(‘.viewport’).on(‘mouseleave’, function(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-27T10:48:57+08:00">
                 2018-02-27
@@ -1585,7 +1722,7 @@ $(‘.viewport’).on(‘mouseleave’, function(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T08:03:09+08:00">
                 2018-02-24
@@ -1683,170 +1820,6 @@ $(‘.viewport’).on(‘mouseleave’, function(){
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/20/JS笔记-函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="今天学习了吗">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/20/JS笔记-函数/" itemprop="url">JS笔记-函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Diposting di</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:55:56+08:00">
-                2018-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="函数声明的五种方式"><a href="#函数声明的五种方式" class="headerlink" title="函数声明的五种方式"></a>函数声明的五种方式</h3><ol>
-<li>具名函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fn(输入1, 输入2, ...)&#123;</span><br><span class="line">  return 输出值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>函数是变量的特例
-console.log(x) -&gt; 结果：字符串
-2. 匿名函数
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fn = function(输入1, 输入2, ...)&#123;</span><br><span class="line">  return 输出值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>声明+具名<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var f = function fn(输入1, 输入2, ...)&#123;</span><br><span class="line">  return 输出值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>console.log(fn) -&gt; 报错
-fn的作用域只在函数的代码块内
-4. Function构造函数
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fn = new Function(&apos;输入1&apos;, &apos;输入2&apos;, &apos;return 返回值&apos;)</span><br></pre></td></tr></table></figure></p>
-<p>5.ES6语法（箭头函数）
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fn = (输入1, 输入2) =&gt; &#123;</span><br><span class="line">  return 输出</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>只有一个参数，可以省略()，函数体只有一句话，可以同时省略{}及return
-箭头函数只能是匿名函数，可以用变量包含</p>
-<h3 id="函数的name属性"><a href="#函数的name属性" class="headerlink" title="函数的name属性"></a>函数的name属性</h3><ol>
-<li><p>具名函数的name</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;&#125;</span><br><span class="line">fn.name //fn</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匿名函数的name</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var f = function()&#123;&#125;</span><br><span class="line">f.name //f</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>声明+具名函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var f = function fn()&#123;&#125;</span><br><span class="line">f.name //fn</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Function构造函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var fn = new Function(&apos;x&apos;, &apos;y&apos;, &apos;return x+y&apos;)</span><br><span class="line">fn.name //&quot;anonymous&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3><ol>
-<li>fn(参数1, 参数2, …)</li>
-<li>fn.call(undefined, 参数1, 参数2, …)<h3 id="this-与-arguments"><a href="#this-与-arguments" class="headerlink" title="this 与 arguments"></a>this 与 arguments</h3>fn.call(undefined, 参数1, 参数2, …)
-this: undefined
-arguments: 参数1, 参数2, …</li>
-</ol>
-<p>call的第一个参数可以用this得到
-call的后面的参数可以用arguments得到
-非严格模式下，this为undefined时，浏览器会自动将undefined变为window</p>
-<h3 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h3><p>stack -&gt;先入后出</p>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>如果一个函数，使用了它范围外的变量，那么（这个函数+这个变量）就叫做闭包</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1897,8 +1870,8 @@ call的后面的参数可以用arguments得到
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
-                  <span class="site-state-item-name">posting</span>
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -1911,7 +1884,7 @@ call的后面的参数可以用arguments得到
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">Tags</span>
                 
               </div>
             
@@ -1957,7 +1930,7 @@ call的后面的参数可以用arguments得到
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -1965,7 +1938,7 @@ call的后面的参数可以用arguments得到
 
 
 
-  <div class="theme-info">Tema &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
